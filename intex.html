@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Minecraft Quiz — sprawdź swoją wiedzę o świecie Minecraft!">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Minecraft Quiz</title>
+</head>
+<body>
+    <div class="background-effects" aria-hidden="true">
+        <div class="glow glow-one"></div>
+        <div class="glow glow-two"></div>
+        <div class="glow glow-three"></div>
+    </div>
+    <div class="particles" id="particles" aria-hidden="true"></div>
+    <header class="topbar">
+        <a href="#" class="logo" aria-label="Minecraft Quiz — strona główna">
+            <span class="logo-icon">✦</span>
+            <span>mine<span class="logo-accent">craft</span></span>
+        </a>
+        <div class="topbar-right">
+            <span class="status-dot"></span>
+            <span class="status-text">QUIZ TIME</span>
+        </div>
+    </header>
+    <main class="main-container">
+        <section class="screen welcome-screen active" id="welcomeScreen">
+            <div class="welcome-content">
+                <div class="eyebrow">
+                    <span>✧</span>
+                    THE ULTIMATE MINECRAFT QUIZ
+                    <span>✧</span>
+                </div>
+                <div class="hero-icon" aria-hidden="true">
+                    <div class="hero-icon-glow"></div>
+                    <div class="minecraft-cube">🌸</div>
+                    <div class="floating-item item-one">💎</div>
+                    <div class="floating-item item-two">✨</div>
+                    <div class="floating-item item-three">🌷</div>
+                    <div class="floating-item item-four">⭐</div>
+                </div>
+                <h1>How well do you<br>
+                    know <span class="gradient-text">Minecraft?</span>
+                </h1>
+                <p class="welcome-description">Odblokuj swoją wiedzę, odkrywaj sekrety świata Minecraft i sprawdź, czy jesteś prawdziwym ekspertem!</p>
+                <div class="quiz-info">
+                    <div class="info-item">
+                        <span class="info-icon">❔</span>
+                        <div>
+                            <strong>10</strong>
+                            <span>pytań</span>
+                        </div>
+                    </div>
+                    <div class="info-divider"></div>
+                    <div class="info-item">
+                        <span class="info-icon">⏱️</span>
+                        <div>
+                            <strong>~3 min</strong>
+                            <span>czas gry</span>
+                        </div>
+                    </div>
+                    <div class="info-divider"></div>
+                    <div class="info-item">
+                        <span class="info-icon">💜</span>
+                        <div>
+                            <strong>Easy–Pro</strong>
+                            <span>poziom</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="primary-button" id="startButton">
+                    <span>Rozpocznij quiz</span>
+                    <span class="button-arrow">→</span>
+                </button>
+                <p class="welcome-footer">MADE WITH <span>♥</span> FOR MINECRAFT LOVERS</p>
+            </div>
+        </section>
+        <section class="screen quiz-screen" id="quizScreen">
+            <div class="quiz-header">
+                <div class="quiz-category">
+                    <span class="category-icon">⛏️</span>
+                    <div>
+                        <span class="category-label">KATEGORIA</span>
+                        <strong>Minecraft knowledge</strong>
+                    </div>
+                </div>
+                <div class="question-counter">
+                    <span id="currentQuestion">01</span>
+                    <span class="counter-divider">/</span>
+                    <span id="totalQuestions">10</span>
+                </div>
+            </div>
+            <div class="progress-track" role="progressbar" aria-label="Postęp quizu" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressTrack">
+                <div class="progress-fill" id="progressFill"></div>
+                <div class="progress-sparkle">✦</div>
+            </div>
+            <div class="question-content" id="questionContent">
+                <div class="question-label">
+                    <span class="question-number-icon">✧</span>
+                    QUESTION <span id="questionNumberLabel">01</span>
+                </div>
+                <h2 id="questionText">Ładowanie pytania...</h2>
+                <p class="question-hint">Wybierz jedną poprawną odpowiedź</p>
+                <div class="answers-grid" id="answersContainer"></div>
+                <div class="feedback-message" id="feedbackMessage" role="status" aria-live="polite"></div>
+            </div>
+            <div class="quiz-footer">
+                <div class="score-display">
+                    <span class="score-icon">✦</span>
+                    <span>Twój wynik:</span>
+                    <strong id="scoreDisplay">0</strong>
+                    <span class="score-unit">pkt</span>
+                </div>
+                <button class="next-button" id="nextButton" disabled>
+                    <span id="nextButtonText">Następne pytanie</span>
+                    <span>→</span>
+                </button>
+            </div>
+        </section>
+        <section class="screen result-screen" id="resultScreen">
+            <div class="result-content">
+                <div class="result-decoration decoration-left">✦</div>
+                <div class="result-decoration decoration-right">✧</div>
+                <div class="result-badge" id="resultBadge">🏆</div>
+                <div class="eyebrow result-eyebrow">
+                    QUIZ COMPLETED
+                </div>
+                <h1 id="resultTitle">Amazing!</h1>
+                <p class="result-description" id="resultDescription">Sprawdź swój wynik!</p>
+                <div class="result-card">
+                    <span class="result-card-label">TWÓJ WYNIK</span>
+                    <div class="result-score">
+                        <span id="finalScore">0</span>
+                        <span class="result-score-divider">/</span>
+                        <span id="maxScore">10</span>
+                    </div>
+                    <div class="result-progress-track">
+                        <div class="result-progress-fill" id="resultProgressFill"></div>
+                    </div>
+                    <div class="result-percentage">
+                        <span>Poprawne odpowiedzi</span>
+                        <strong id="resultPercentage">0%</strong>
+                    </div>
+                </div>
+                <div class="result-message" id="resultMessage"></div>
+                <button class="primary-button replay-button" id="restartButton">
+                    <span>Spróbuj ponownie</span>
+                    <span class="button-arrow">↻</span>
+                </button>
+                <p class="welcome-footer">EVERY BLOCK HAS A STORY <span>♥</span></p>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <span>MINECRAFT QUIZ</span>
+        <span class="footer-separator">✦</span>
+        <span>BUILD YOUR KNOWLEDGE</span>
+        <span class="footer-copyright">© 2026</span>
+    </footer>
+</body>
+</html>
