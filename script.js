@@ -355,7 +355,39 @@ function createParticles() {
     }
     particlesContainer.appendChild(fragment);
 }
-startButton.addEventListener("click", startQuiz);
+const themeButtons = document.querySelectorAll("[data-theme-choice]");
+const chestScene = document.getElementById("chestScene");
+const treasureChest = document.getElementById("treasureChest");
+const themeStorageKey = "minecraftQuizTheme";
+function applyTheme(themeName) {
+    const allowedThemes = ["lavender", "cherry", "ender"];
+    const theme = allowedThemes.includes(themeName) ? themeName : "lavender";
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem(themeStorageKey, theme);
+    themeButtons.forEach(button => {
+        const isSelected = button.dataset.themeChoice === theme;
+        button.classList.toggle("selected", isSelected);
+        button.setAttribute("aria-pressed", String(isSelected));
+    });
+}
+themeButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        applyTheme(button.dataset.themeChoice);
+    });
+});
+applyTheme(localStorage.getItem(themeStorageKey) || "lavender");
+startButton.addEventListener("click", () => {
+    if (startButton.disabled) return;
+    startButton.disabled = true;
+    chestScene.classList.add("chest-opening");
+    startButton.querySelector("span:first-child").textContent = "Otwieranie skarbu...";
+    window.setTimeout(() => {
+        chestScene.classList.remove("chest-opening");
+        startButton.disabled = false;
+        startButton.querySelector("span:first-child").textContent = "Rozpocznij przygodę";
+        startQuiz();
+    }, 850);
+});
 nextButton.addEventListener("click", nextQuestion);
 restartButton.addEventListener("click", startQuiz);
 createParticles();
