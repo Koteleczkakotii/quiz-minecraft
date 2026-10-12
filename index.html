@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Minecraft Quiz — sprawdź swoją wiedzę o świecie Minecraft!">
@@ -32,51 +32,72 @@
             <div class="welcome-content">
                 <div class="eyebrow">
                     <span>✧</span>
-                    THE ULTIMATE MINECRAFT QUIZ
+                    MAGICZNA PRZYGODA W MINECRAFCIE
                     <span>✧</span>
                 </div>
-                <div class="hero-icon" aria-hidden="true">
+
+                <div class="hero-icon chest-scene" id="chestScene" aria-hidden="true">
                     <div class="hero-icon-glow"></div>
-                    <div class="minecraft-cube">🌸</div>
-                    <div class="floating-item item-one">💎</div>
-                    <div class="floating-item item-two">✨</div>
-                    <div class="floating-item item-three">🌷</div>
-                    <div class="floating-item item-four">⭐</div>
+                    <span class="crystal crystal-one">💎</span>
+                    <span class="crystal crystal-two">🔮</span>
+                    <span class="crystal crystal-three">✨</span>
+                    <span class="crystal crystal-four">💠</span>
+                    <div class="treasure-chest" id="treasureChest">
+                        <div class="chest-lid"><span class="chest-lid-band"></span></div>
+                        <div class="chest-base">
+                            <span class="chest-band"></span>
+                            <span class="chest-lock">✦</span>
+                        </div>
+                        <div class="chest-sparkle chest-sparkle-one">✧</div>
+                        <div class="chest-sparkle chest-sparkle-two">✦</div>
+                    </div>
                 </div>
-                <h1>How well do you<br>
-                    know <span class="gradient-text">Minecraft?</span>
-                </h1>
-                <p class="welcome-description">Unlock your knowledge, discover the secrets of the Minecraft world, and see if you're a true expert!</p>
+
+                <h1>MINECRAFT<br><span class="gradient-text">QUIZ</span></h1>
+                <p class="welcome-description">Sprawdź, jak dobrze znasz swój świat!</p>
+
+                <div class="theme-picker" aria-label="Wybierz motyw quizu">
+                    <p class="theme-picker-title">WYBIERZ SWÓJ MOTYW</p>
+                    <div class="theme-options">
+                        <button class="theme-option" type="button" data-theme-choice="lavender" aria-pressed="false">
+                            <span class="theme-swatch lavender-swatch"><span>✦</span></span>
+                            <span class="theme-option-name">Lavender Dream</span>
+                            <span class="theme-option-description">Lawendowa magia</span>
+                        </button>
+                        <button class="theme-option" type="button" data-theme-choice="cherry" aria-pressed="false">
+                            <span class="theme-swatch cherry-swatch"><span>🌸</span></span>
+                            <span class="theme-option-name">Cherry Blossom</span>
+                            <span class="theme-option-description">Kwiatowa kraina</span>
+                        </button>
+                        <button class="theme-option" type="button" data-theme-choice="ender" aria-pressed="false">
+                            <span class="theme-swatch ender-swatch"><span>✧</span></span>
+                            <span class="theme-option-name">Ender Magic</span>
+                            <span class="theme-option-description">Tajemnica Endu</span>
+                        </button>
+                    </div>
+                </div>
+
                 <div class="quiz-info">
                     <div class="info-item">
                         <span class="info-icon">❔</span>
-                        <div>
-                            <strong>10</strong>
-                            <span>questions</span>
-                        </div>
+                        <div><strong>10</strong><span>pytań</span></div>
                     </div>
                     <div class="info-divider"></div>
                     <div class="info-item">
                         <span class="info-icon">⏱️</span>
-                        <div>
-                            <strong>~3 min</strong>
-                            <span>game time</span>
-                        </div>
+                        <div><strong>~3 min</strong><span>rozgrywki</span></div>
                     </div>
                     <div class="info-divider"></div>
                     <div class="info-item">
                         <span class="info-icon">💜</span>
-                        <div>
-                            <strong>Easy–Pro</strong>
-                            <span>level</span>
-                        </div>
+                        <div><strong>Easy–Pro</strong><span>poziom</span></div>
                     </div>
                 </div>
-                <button class="primary-button" id="startButton">
-                    <span>Start quiz</span>
-                    <span class="button-arrow">→</span>
+                <button class="primary-button adventure-button" id="startButton" type="button">
+                    <span>Rozpocznij przygodę</span>
+                    <span class="button-arrow">✨</span>
                 </button>
-                <p class="welcome-footer">MADE WITH <span>♥</span> FOR MINECRAFT LOVERS</p>
+                <p class="welcome-footer">STWORZONE Z <span>♥</span> DLA FANÓW MINECRAFTA</p>
             </div>
         </section>
         <section class="screen quiz-screen" id="quizScreen">
