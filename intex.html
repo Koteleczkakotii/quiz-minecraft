@@ -20,7 +20,7 @@
     <header class="topbar">
         <a href="#" class="logo" aria-label="Minecraft Quiz — strona główna">
             <span class="logo-icon">✦</span>
-            <span>mine<span class="logo-accent">craft</span></span>
+            <span>Mine<span class="logo-accent">craft</span></span>
         </a>
         <div class="topbar-right">
             <span class="status-dot"></span>
@@ -46,13 +46,13 @@
                 <h1>How well do you<br>
                     know <span class="gradient-text">Minecraft?</span>
                 </h1>
-                <p class="welcome-description">Odblokuj swoją wiedzę, odkrywaj sekrety świata Minecraft i sprawdź, czy jesteś prawdziwym ekspertem!</p>
+                <p class="welcome-description">Unlock your knowledge, discover the secrets of the Minecraft world, and see if you're a true expert!</p>
                 <div class="quiz-info">
                     <div class="info-item">
                         <span class="info-icon">❔</span>
                         <div>
                             <strong>10</strong>
-                            <span>pytań</span>
+                            <span>questions</span>
                         </div>
                     </div>
                     <div class="info-divider"></div>
@@ -60,7 +60,7 @@
                         <span class="info-icon">⏱️</span>
                         <div>
                             <strong>~3 min</strong>
-                            <span>czas gry</span>
+                            <span>game time</span>
                         </div>
                     </div>
                     <div class="info-divider"></div>
@@ -68,12 +68,12 @@
                         <span class="info-icon">💜</span>
                         <div>
                             <strong>Easy–Pro</strong>
-                            <span>poziom</span>
+                            <span>level</span>
                         </div>
                     </div>
                 </div>
                 <button class="primary-button" id="startButton">
-                    <span>Rozpocznij quiz</span>
+                    <span>Start quiz</span>
                     <span class="button-arrow">→</span>
                 </button>
                 <p class="welcome-footer">MADE WITH <span>♥</span> FOR MINECRAFT LOVERS</p>
@@ -84,7 +84,7 @@
                 <div class="quiz-category">
                     <span class="category-icon">⛏️</span>
                     <div>
-                        <span class="category-label">KATEGORIA</span>
+                        <span class="category-label">CATEGORY</span>
                         <strong>Minecraft knowledge</strong>
                     </div>
                 </div>
@@ -103,20 +103,20 @@
                     <span class="question-number-icon">✧</span>
                     QUESTION <span id="questionNumberLabel">01</span>
                 </div>
-                <h2 id="questionText">Ładowanie pytania...</h2>
-                <p class="question-hint">Wybierz jedną poprawną odpowiedź</p>
+                <h2 id="questionText">Loading question...</h2>
+                <p class="question-hint">Choose one correct answer.</p>
                 <div class="answers-grid" id="answersContainer"></div>
                 <div class="feedback-message" id="feedbackMessage" role="status" aria-live="polite"></div>
             </div>
             <div class="quiz-footer">
                 <div class="score-display">
                     <span class="score-icon">✦</span>
-                    <span>Twój wynik:</span>
+                    <span>Your score:</span>
                     <strong id="scoreDisplay">0</strong>
                     <span class="score-unit">pkt</span>
                 </div>
                 <button class="next-button" id="nextButton" disabled>
-                    <span id="nextButtonText">Następne pytanie</span>
+                    <span id="nextButtonText">Next question</span>
                     <span>→</span>
                 </button>
             </div>
@@ -130,9 +130,9 @@
                     QUIZ COMPLETED
                 </div>
                 <h1 id="resultTitle">Amazing!</h1>
-                <p class="result-description" id="resultDescription">Sprawdź swój wynik!</p>
+                <p class="result-description" id="resultDescription">Check your score!</p>
                 <div class="result-card">
-                    <span class="result-card-label">TWÓJ WYNIK</span>
+                    <span class="result-card-label">YOUR SCORE</span>
                     <div class="result-score">
                         <span id="finalScore">0</span>
                         <span class="result-score-divider">/</span>
@@ -142,13 +142,13 @@
                         <div class="result-progress-fill" id="resultProgressFill"></div>
                     </div>
                     <div class="result-percentage">
-                        <span>Poprawne odpowiedzi</span>
+                        <span>Right answer</span>
                         <strong id="resultPercentage">0%</strong>
                     </div>
                 </div>
                 <div class="result-message" id="resultMessage"></div>
                 <button class="primary-button replay-button" id="restartButton">
-                    <span>Spróbuj ponownie</span>
+                    <span>Try again</span>
                     <span class="button-arrow">↻</span>
                 </button>
                 <p class="welcome-footer">EVERY BLOCK HAS A STORY <span>♥</span></p>
