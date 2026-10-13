@@ -77,10 +77,34 @@
                     </div>
                 </div>
 
+                <section class="quiz-setup" aria-labelledby="categoryHeading">
+                    <div class="setup-heading">
+                        <span class="setup-kicker">TWOJA WYPRAWA, TWOJE ZASADY</span>
+                        <h2 id="categoryHeading">Co dziś odkrywamy?</h2>
+                        <p>Wybierz kategorię i dopasuj długość quizu do siebie.</p>
+                    </div>
+                    <div class="category-grid" id="categoryGrid" role="group" aria-label="Wybierz kategorię quizu">
+                        <button class="category-card selected" type="button" data-category="all" aria-pressed="true"><span class="category-card-icon">🌎</span><span class="category-card-title">Wszystko</span><span class="category-card-description">Miks całego Minecrafta</span><span class="category-card-check">✓</span></button>
+                        <button class="category-card" type="button" data-category="biomes" aria-pressed="false"><span class="category-card-icon">🌿</span><span class="category-card-title">Biomy</span><span class="category-card-description">Krainy i ich sekrety</span><span class="category-card-check">✓</span></button>
+                        <button class="category-card" type="button" data-category="mobs" aria-pressed="false"><span class="category-card-icon">🐲</span><span class="category-card-title">Moby</span><span class="category-card-description">Przyjazne i groźne stworzenia</span><span class="category-card-check">✓</span></button>
+                        <button class="category-card" type="button" data-category="resources" aria-pressed="false"><span class="category-card-icon">💎</span><span class="category-card-title">Surowce</span><span class="category-card-description">Rudy, minerały i bloki</span><span class="category-card-check">✓</span></button>
+                        <button class="category-card" type="button" data-category="crafting" aria-pressed="false"><span class="category-card-icon">🧰</span><span class="category-card-title">Crafting</span><span class="category-card-description">Przedmioty i receptury</span><span class="category-card-check">✓</span></button>
+                        <button class="category-card" type="button" data-category="dimensions" aria-pressed="false"><span class="category-card-icon">🌌</span><span class="category-card-title">Wymiary i bossowie</span><span class="category-card-description">Nether, End i wielkie walki</span><span class="category-card-check">✓</span></button>
+                    </div>
+                    <div class="question-count-picker">
+                        <div class="question-count-copy"><strong>Ile pytań?</strong><span>Wybierz tempo swojej przygody</span></div>
+                        <div class="question-count-options" role="group" aria-label="Liczba pytań">
+                            <button type="button" class="count-option selected" data-count="10" aria-pressed="true"><strong>10</strong><span>Szybki</span></button>
+                            <button type="button" class="count-option" data-count="20" aria-pressed="false"><strong>20</strong><span>Klasyczny</span></button>
+                            <button type="button" class="count-option" data-count="30" aria-pressed="false"><strong>30</strong><span>Ekspert</span></button>
+                        </div>
+                    </div>
+                </section>
+
                 <div class="quiz-info">
                     <div class="info-item">
                         <span class="info-icon">❔</span>
-                        <div><strong>10</strong><span>pytań</span></div>
+                        <div><strong id="selectedQuestionCount">10</strong><span>pytań</span></div>
                     </div>
                     <div class="info-divider"></div>
                     <div class="info-item">
@@ -94,7 +118,7 @@
                     </div>
                 </div>
                 <button class="primary-button adventure-button" id="startButton" type="button">
-                    <span>Rozpocznij przygodę</span>
+                    <span>Rozpoznaj quiz</span>
                     <span class="button-arrow">✨</span>
                 </button>
                 <p class="welcome-footer">STWORZONE Z <span>♥</span> DLA FANÓW MINECRAFTA</p>
