@@ -60,10 +60,75 @@ const questionBank = {
         ["Który wymiar jest domem dla ghastów i fortec Netheru?", ["Overworld", "Nether", "The End", "Wymiar Kresu"], 1, "Ghasty i fortece Netheru znajdują się w Netherze."],
     ]
 };
+const englishQuestionBank = {
+    biomes: [
+        ["In which biome are you most likely to find cacti?", ["Jungle", "Desert", "Taiga", "Swamp"], "Cacti naturally grow in deserts."],
+        ["Which biome is known for tall dark oak trees and mushrooms?", ["Dark Forest", "Savanna", "Plains", "Beach"], "Dark Forests have dense canopies and large mushrooms."],
+        ["Where can you find cherry trees?", ["Cherry Grove", "Badlands", "Nether Wastes", "Deep Dark"], "Cherry Grove is a biome with pink cherry trees."],
+        ["Which biome usually has very tall, jagged peaks?", ["Mangrove Swamp", "Jagged Peaks", "Desert", "Birch Forest"], "Jagged Peaks are tall, rocky mountain summits."],
+        ["In which biome do mangrove trees naturally grow?", ["Jungle", "Mangrove Swamp", "Taiga", "Ice Spikes"], "Mangrove trees grow in mangrove swamps."],
+        ["Which biome is known for bamboo forests?", ["Jungle", "Plains", "Mushroom Fields", "Badlands"], "Bamboo jungles are a variant of the jungle biome."],
+        ["Where can you find polar bears?", ["Warm Ocean", "Icy and snowy regions", "Savanna", "Badlands"], "Polar bears spawn in cold biomes."],
+        ["Which biome has red sand and colorful layers of rock?", ["Badlands", "Taiga", "Meadow", "Flower Forest"], "Badlands are known for terracotta and red sand."],
+        ["Which biome is especially rare and covered with mushrooms?", ["Mushroom Fields", "Oak Forest", "River", "Frozen Ocean"], "Mushroom Fields is a rare biome with mushrooms and mooshrooms."],
+        ["In which biome can you often find spruce trees and wolves?", ["Taiga", "Desert", "Savanna", "Warm Ocean"], "Taiga is a cooler forest biome with spruce trees."],
+    ],
+    mobs: [
+        ["Which mob explodes when it gets close to a player?", ["Zombie", "Creeper", "Skeleton", "Enderman"], "A Creeper approaches the player and explodes after a short delay."],
+        ["Which mob teleports and reacts when you look it in the eyes?", ["Witch", "Piglin", "Enderman", "Spider"], "An Enderman can become hostile after eye contact."],
+        ["What do you use to tame a wolf?", ["Wheat", "Bones", "Golden Apple", "Raw Cod"], "Wolves are tamed with bones."],
+        ["Which mob trades with players in villages?", ["Villager", "Creeper", "Shulker", "Phantom"], "Villagers trade emeralds and items with players."],
+        ["Which flying mob attacks players who have not slept for a long time?", ["Allay", "Phantom", "Parrot", "Bat"], "Phantoms can appear when a player has not slept for a while."],
+        ["Which mob shoots arrows from a bow?", ["Skeleton", "Pig", "Cow", "Slime"], "Skeletons fight from a distance using bows."],
+        ["Which mob can pick up and carry blocks?", ["Endermite", "Enderman", "Warden", "Dolphin"], "Endermen can pick up certain blocks."],
+        ["Which friendly mob collects items it likes for the player?", ["Allay", "Vex", "Husk", "Stray"], "An Allay can collect matching items and bring them to the player."],
+        ["Which mob guards Ancient Cities and reacts to sounds?", ["Warden", "Blaze", "Ghast", "Pillager"], "The Warden detects vibrations and sounds in the Deep Dark."],
+        ["Which Nether mob resembles a floating, fireball-shooting creature?", ["Ghast", "Rabbit", "Bee", "Salmon"], "Ghasts float in the Nether and shoot fireballs."],
+    ],
+    resources: [
+        ["Which block is highly resistant to explosions?", ["Sand", "Oak Planks", "Obsidian", "Gravel"], "Obsidian has very high blast resistance."],
+        ["Which materials are needed to craft a diamond pickaxe?", ["3 diamonds and 2 sticks", "2 diamonds and 3 sticks", "3 iron ingots", "4 diamonds and 2 sticks"], "A diamond pickaxe is crafted with 3 diamonds and 2 sticks."],
+        ["Which ore drops lapis lazuli?", ["Gold Ore", "Lapis Lazuli Ore", "Copper Ore", "Coal Ore"], "Lapis lazuli ore drops lapis lazuli."],
+        ["What do you smelt to obtain iron ingots?", ["Iron Ore", "Sand", "Obsidian", "Red Sand"], "Iron ore can be smelted in a furnace into iron ingots."],
+        ["Which resource is key to crafting torches?", ["Coal or Charcoal", "Emerald", "Quartz", "Amethyst"], "A torch is crafted from a stick and coal or charcoal."],
+        ["Which crystal can be found in geodes?", ["Amethyst", "Diamond Block", "Nether Star", "Prismarine"], "Geodes contain amethyst blocks and crystal clusters."],
+        ["What do you get by smelting copper ore?", ["Copper Ingots", "Ender Pearls", "Gold Ingots", "Netherite"], "Smelting copper ore produces copper ingots."],
+        ["Which material upgrades diamond gear to netherite gear?", ["Quartz", "Netherite Ingot", "Lapis Lazuli", "Copper"], "Upgrading requires a netherite ingot and a smithing template."],
+        ["Which block do you mine to obtain redstone?", ["Redstone Ore", "Soul Sand", "Clay", "Moss Block"], "Redstone ore drops redstone dust."],
+        ["Which resource is most commonly used as currency when trading with villagers?", ["Emerald", "Amethyst", "Quartz", "Copper"], "Emeralds are the standard currency for villager trading."],
+    ],
+    crafting: [
+        ["Which item is used to brew potions?", ["Smithing Table", "Brewing Stand", "Grindstone", "Composter"], "A brewing stand is used to brew potions."],
+        ["What is needed to activate an End Portal?", ["Ender Pearls and Obsidian", "Diamonds and Blaze Rods", "Eyes of Ender in the portal frame", "Nether Star"], "Activate the portal by placing Eyes of Ender in its frame."],
+        ["How many diamonds are needed for a diamond sword?", ["One", "Two", "Three", "Four"], "A diamond sword requires two diamonds and one stick."],
+        ["Which table lets you apply armor trim patterns?", ["Smithing Table", "Enchanting Table", "Loom", "Stonecutter"], "A smithing table is used for upgrades and armor trimming."],
+        ["What is paper made from?", ["Sugar Cane", "Sticks", "Wool", "Sand"], "Three sugar canes in a row make paper."],
+        ["Which item lets you enchant equipment?", ["Enchanting Table", "Cauldron", "Shield", "Hopper"], "An enchanting table uses lapis and experience levels to enchant items."],
+        ["What is needed to craft a bed?", ["3 planks and 3 wool", "2 iron ingots", "4 stone blocks", "3 leather"], "A bed is crafted from three planks and three wool blocks."],
+        ["Which item repairs equipment and combines its enchantments?", ["Anvil", "Compass", "Fishing Rod", "Map"], "An anvil lets you repair items and combine enchantments."],
+        ["What is needed to craft a chest?", ["8 planks", "4 gold ingots", "6 stone blocks", "2 diamonds"], "A chest is crafted from eight planks arranged around an empty center."],
+        ["Which item helps you find north and the world spawn point?", ["Compass", "Clock", "Shears", "Bucket"], "A regular compass points to the world spawn point."],
+    ],
+    dimensions: [
+        ["In which dimension can you find the Ender Dragon?", ["The Nether", "The Overworld", "The End", "The Deep Dark"], "The Ender Dragon is found in the End dimension."],
+        ["What do you use to light a Nether Portal?", ["Flint and steel on an obsidian frame", "Diamond sword", "Bucket of sand", "Redstone and gold"], "An obsidian portal can be activated with flint and steel."],
+        ["What appears on the exit portal after you defeat the Ender Dragon for the first time?", ["Dragon Egg", "Trident", "Elytra", "Totem of Undying"], "The Dragon Egg appears after the first victory."],
+        ["Which boss guards ocean monuments?", ["Wither", "Elder Guardian", "Ender Dragon", "Warden"], "Elder Guardians are found in ocean monuments."],
+        ["Which items are used to summon the Wither?", ["Soul Sand and Wither Skeleton Skulls", "Obsidian and Ender Pearls", "Gold and Apples", "Quartz and Blaze Rods"], "The Wither is summoned using soul sand or soul soil and three skulls."],
+        ["Which resource is characteristic of the Nether?", ["Nether Quartz", "Emerald", "Amethyst", "Copper"], "Nether quartz ore is found in the Nether."],
+        ["What is the name of the End structure where you can find elytra?", ["Bastion Remnant", "End City", "Woodland Mansion", "Nether Fortress"], "Elytra can be found on ships near End Cities."],
+        ["Which mob do you need to defeat to get Blaze Rods in the Nether?", ["Blaze", "Ghast", "Piglin", "Magma Cube"], "Blazes drop Blaze Rods."],
+        ["What do you need to find a stronghold with an End Portal?", ["Eye of Ender", "Recovery Compass", "Clock", "Treasure Map"], "An Eye of Ender leads you toward a stronghold."],
+        ["Which dimension is home to ghasts and Nether fortresses?", ["Overworld", "Nether", "The End", "The End dimension"], "Ghasts and Nether fortresses are found in the Nether."],
+    ]
+};
 const categoryInfo = {
-    all: { title: "Wszystko", icon: "🌎" }, biomes: { title: "Biomy", icon: "🌿" },
-    mobs: { title: "Moby", icon: "🐲" }, resources: { title: "Surowce", icon: "💎" },
-    crafting: { title: "Crafting", icon: "🧰" }, dimensions: { title: "Wymiary i bossowie", icon: "🌌" }
+    all: { pl: "Wszystko", en: "Everything", icon: "🌎" },
+    biomes: { pl: "Biomy", en: "Biomes", icon: "🌿" },
+    mobs: { pl: "Moby", en: "Mobs", icon: "🐲" },
+    resources: { pl: "Surowce", en: "Resources", icon: "💎" },
+    crafting: { pl: "Crafting", en: "Crafting", icon: "🧰" },
+    dimensions: { pl: "Wymiary i bossowie", en: "Dimensions & bosses", icon: "🌌" }
 };
 const welcomeScreen = document.getElementById("welcomeScreen");
 const quizScreen = document.getElementById("quizScreen");
@@ -93,12 +158,170 @@ const resultMessage = document.getElementById("resultMessage");
 const categoryTitle = document.querySelector(".quiz-category strong");
 const categoryIcon = document.querySelector(".quiz-category .category-icon");
 const selectedQuestionCount = document.getElementById("selectedQuestionCount");
+const languageButtons = document.querySelectorAll("[data-language]");
+const estimatedTime = document.getElementById("estimatedTime");
+const startButtonLabel = document.getElementById("startButtonLabel");
+const factText = document.getElementById("factText");
+const factCounter = document.getElementById("factCounter");
+const nextFactButton = document.getElementById("nextFactButton");
+const resultFactText = document.getElementById("resultFactText");
+const nextResultFactButton = document.getElementById("nextResultFactButton");
+const languageStorageKey = "minecraftQuizLanguage";
+let currentLanguage = (() => { try { return localStorage.getItem(languageStorageKey) === "en" ? "en" : "pl"; } catch (_) { return "pl"; } })();
+let currentFactIndex = -1;
+let lastFactIndex = -1;
 let currentQuestions = [];
 let selectedCategory = "all";
 let selectedCount = 10;
 let currentIndex = 0;
 let score = 0;
 let answered = false;
+let lastSelectedIndex = null;
+Object.keys(questionBank).forEach(category => {
+    questionBank[category].forEach((question, index) => {
+        const englishQuestion = englishQuestionBank[category][index];
+        question.en = { question: englishQuestion[0], answers: englishQuestion[1], explanation: englishQuestion[2] };
+    });
+});
+const uiText = {
+    pl: {
+        languageAria: "Wybierz język", progressAria: "Postęp quizu", status: "CZAS NA QUIZ", eyebrow: "MAGICZNA PRZYGODA W MINECRAFCIE", welcomeDescription: "Sprawdź, jak dobrze znasz swój świat!",
+        themeAria: "Wybierz motyw quizu", themeTitle: "WYBIERZ SWÓJ MOTYW", themeLavender: "Lawendowa magia", themeCherry: "Kwiatowa kraina", themeEnder: "Tajemnica Endu",
+        setupKicker: "TWOJA WYPRAWA, TWOJE ZASADY", categoryHeading: "Co dziś odkrywamy?", setupDescription: "Wybierz kategorię i dopasuj długość quizu do siebie.", categoryAria: "Wybierz kategorię quizu",
+        catAll: "Wszystko", catAllDesc: "Miks całego Minecrafta", catBiomes: "Biomy", catBiomesDesc: "Krainy i ich sekrety", catMobs: "Moby", catMobsDesc: "Przyjazne i groźne stworzenia",
+        catResources: "Surowce", catResourcesDesc: "Rudy, minerały i bloki", catCrafting: "Crafting", catCraftingDesc: "Przedmioty i receptury", catDimensions: "Wymiary i bossowie", catDimensionsDesc: "Nether, End i wielkie walki",
+        countTitle: "Ile pytań?", countHint: "Wybierz tempo swojej przygody", countAria: "Liczba pytań", countQuick: "Szybki", countClassic: "Klasyczny", countExpert: "Ekspert", questionsLabel: "pytań", gameTime: "rozgrywki", levelRange: "Łatwy–Pro", levelLabel: "poziom",
+        startQuiz: "Rozpocznij quiz", openingChest: "Otwieranie skarbu...", welcomeFooter: "STWORZONE Z ♥ DLA FANÓW MINECRAFTA", resultFactTitle: "Ciekawostka na koniec", resultFactAria: "Następna ciekawostka", factKicker: "MAGICZNA SKRZYNIA WIEDZY", factHeading: "Czy wiesz, że…?", nextFact: "Odkryj kolejną ciekawostkę",
+        categoryLabel: "KATEGORIA", questionLabel: "PYTANIE", questionHint: "Wybierz jedną poprawną odpowiedź.", yourScore: "Twój wynik:", points: "pkt", nextQuestion: "Następne pytanie", seeResult: "Zobacz wynik",
+        quizCompleted: "QUIZ UKOŃCZONY", resultScore: "TWÓJ WYNIK", correctAnswers: "Poprawne odpowiedzi", tryAgain: "Zagraj ponownie", resultFooter: "KAŻDY BLOK MA SWOJĄ HISTORIĘ ♥", footerTagline: "ROZWIJAJ SWOJĄ WIEDZĘ",
+        correctStart: "✦ Świetnie! ", incorrectStart: "♡ Nie tym razem! ", resultPerfectTitle: "Mistrz Minecrafta!", resultPerfectDescription: "Perfekcyjny wynik! Ten świat nie ma przed Tobą tajemnic.", resultPerfectMessage: "Wszystkie odpowiedzi poprawne. Prawdziwa legenda! ✨",
+        result80Title: "Niesamowity wynik!", result80Description: "Masz naprawdę imponującą wiedzę o Minecraft.", result80Message: "Jesteś o krok od perfekcji. Tak trzymaj! 💜",
+        result60Title: "Świetny odkrywca!", result60Description: "Znasz już sporo sekretów tego świata.", result60Message: "Jeszcze kilka przygód i zostaniesz ekspertem! 🌸",
+        result40Title: "Odkrywaj dalej!", result40Description: "Każdy blok to nowa okazja do nauki.", result40Message: "Spróbuj ponownie i zobacz, ile punktów zdobędziesz! ✨",
+        resultLowTitle: "Nowa przygoda!", resultLowDescription: "Każdy ekspert kiedyś zaczynał.", resultLowMessage: "Nie poddawaj się — kolejna próba może być znacznie lepsza! 💗",
+        countHintCategory: "Ta kategoria ma 10 unikalnych pytań", countHintAll: "Wybierz tempo swojej przygody · do 50 pytań", countDisabledTitle: "Ta kategoria ma obecnie 10 unikalnych pytań. Wybierz „Wszystko”, aby zagrać dłuższy quiz.",
+        timeMinutes: n => `~${Math.max(1, Math.ceil(n * 0.3))} min`, homeAria: "Minecraft Quiz — strona główna", metaDescription: "Minecraft Quiz — sprawdź swoją wiedzę o świecie Minecraft!"
+    },
+    en: {
+        languageAria: "Choose language", progressAria: "Quiz progress", status: "QUIZ TIME", eyebrow: "A MAGICAL MINECRAFT ADVENTURE", welcomeDescription: "Test how well you know your world!",
+        themeAria: "Choose a quiz theme", themeTitle: "CHOOSE YOUR THEME", themeLavender: "Lavender magic", themeCherry: "A blossoming world", themeEnder: "Mystery of the End",
+        setupKicker: "YOUR ADVENTURE, YOUR RULES", categoryHeading: "What shall we explore today?", setupDescription: "Choose a category and set the quiz length that suits you.", categoryAria: "Choose a quiz category",
+        catAll: "Everything", catAllDesc: "A mix of all Minecraft", catBiomes: "Biomes", catBiomesDesc: "Landscapes and their secrets", catMobs: "Mobs", catMobsDesc: "Friendly and dangerous creatures",
+        catResources: "Resources", catResourcesDesc: "Ores, minerals and blocks", catCrafting: "Crafting", catCraftingDesc: "Items and recipes", catDimensions: "Dimensions & bosses", catDimensionsDesc: "The Nether, the End and epic battles",
+        countTitle: "How many questions?", countHint: "Choose the pace of your adventure", countAria: "Number of questions", countQuick: "Quick", countClassic: "Classic", countExpert: "Expert", questionsLabel: "questions", gameTime: "play time", levelRange: "Easy–Pro", levelLabel: "level",
+        startQuiz: "Start quiz", openingChest: "Opening the treasure...", welcomeFooter: "MADE WITH ♥ FOR MINECRAFT FANS", resultFactTitle: "One last Minecraft fact", resultFactAria: "Next fact", factKicker: "THE MAGICAL KNOWLEDGE CHEST", factHeading: "Did you know…?", nextFact: "Discover another fact",
+        categoryLabel: "CATEGORY", questionLabel: "QUESTION", questionHint: "Choose one correct answer.", yourScore: "Your score:", points: "pts", nextQuestion: "Next question", seeResult: "See results",
+        quizCompleted: "QUIZ COMPLETED", resultScore: "YOUR SCORE", correctAnswers: "Correct answers", tryAgain: "Play again", resultFooter: "EVERY BLOCK HAS A STORY ♥", footerTagline: "BUILD YOUR KNOWLEDGE",
+        correctStart: "✦ Great job! ", incorrectStart: "♡ Not this time! ", resultPerfectTitle: "Minecraft Master!", resultPerfectDescription: "A perfect score! This world holds no secrets from you.", resultPerfectMessage: "Every answer is correct. A true legend! ✨",
+        result80Title: "Amazing score!", result80Description: "You have truly impressive Minecraft knowledge.", result80Message: "You are one step away from perfection. Keep it up! 💜",
+        result60Title: "Great explorer!", result60Description: "You already know many secrets of this world.", result60Message: "A few more adventures and you'll be an expert! 🌸",
+        result40Title: "Keep exploring!", result40Description: "Every block is another chance to learn.", result40Message: "Try again and see how many points you can earn! ✨",
+        resultLowTitle: "A new adventure!", resultLowDescription: "Every expert started somewhere.", resultLowMessage: "Don't give up — your next attempt could be much better! 💗",
+        countHintCategory: "This category has 10 unique questions", countHintAll: "Choose your pace · up to 50 questions", countDisabledTitle: "This category currently has 10 unique questions. Choose “Everything” to play a longer quiz.",
+        timeMinutes: n => `~${Math.max(1, Math.ceil(n * 0.3))} min`, homeAria: "Minecraft Quiz — home", metaDescription: "Minecraft Quiz — test your knowledge of the Minecraft world!"
+    }
+};
+const facts = [
+    { pl: "Creeper powstał przez pomyłkę podczas tworzenia modelu świni — jego nietypowy kształt stał się później ikoną gry.", en: "The Creeper was created by mistake while designing a pig model — its unusual shape later became an icon of the game." },
+    { pl: "Pierwsza publiczna wersja Minecrafta ukazała się 17 maja 2009 roku.", en: "The first public version of Minecraft was released on May 17, 2009." },
+    { pl: "Bloki w świecie Minecrafta reprezentują sześciany o boku jednego metra.", en: "Blocks in Minecraft represent cubes that are one meter on each side." },
+    { pl: "Ametystowe geody mogą kryć się pod ziemią i zawierają kryształy ametystu.", en: "Amethyst geodes can be hidden underground and contain amethyst crystals." },
+    { pl: "Endermany otrzymują obrażenia, gdy dotknie ich woda.", en: "Endermen take damage when they come into contact with water." },
+    { pl: "Bloki miodu spowalniają poruszające się po nich postacie i moby.", en: "Honey blocks slow down players and mobs moving across them." },
+    { pl: "Bloki szlamu pozwalają odbijać się po lądowaniu, jeśli spadniesz na nie z góry.", en: "Slime blocks let entities bounce when they land on them from above." },
+    { pl: "Koty potrafią odstraszać creepery, więc mogą pomóc chronić bazę.", en: "Cats can scare creepers away, so they can help protect your base." },
+    { pl: "Stół rzemieślniczy pozwala tworzyć przedmioty na siatce 3×3.", en: "A crafting table lets you make items using a 3×3 crafting grid." },
+    { pl: "Elytry można znaleźć na statkach w pobliżu miast Endu.", en: "Elytra can be found on ships near End Cities." },
+    { pl: "Kompas połączony z magnetytem wskazuje ten konkretny blok, a nie punkt odrodzenia świata.", en: "A compass linked to a lodestone points to that specific block instead of world spawn." },
+    { pl: "Trzymając dynię na głowie, możesz patrzeć na Endermany bez wywoływania ich agresji samym spojrzeniem.", en: "Wearing a carved pumpkin lets you look at Endermen without angering them through eye contact." },
+    { pl: "Pszczoły zapylające uprawy mogą przyspieszać wzrost roślin.", en: "Bees pollinating crops can help plants grow faster." },
+    { pl: "Woda wylana na źródło lawy może zamienić je w obsydian.", en: "Water flowing onto a lava source block can turn it into obsidian." },
+    { pl: "Allay potrafi zbierać przedmioty tego samego rodzaju, co przedmiot pokazany mu przez gracza.", en: "An Allay can collect items matching the item a player gives it." },
+    { pl: "Aksolotle potrafią udawać martwe, gdy walczą pod wodą.", en: "Axolotls can play dead while fighting underwater." },
+    { pl: "Delfiny mogą poprowadzić gracza do pobliskich wraków statków lub ruin oceanu, jeśli nakarmi się je surową rybą.", en: "Dolphins can lead players toward nearby shipwrecks or ocean ruins when fed raw fish." },
+    { pl: "Bloki dźwiękowe wydają różne dźwięki zależnie od bloku znajdującego się pod nimi.", en: "Note blocks make different sounds depending on the block underneath them." },
+    { pl: "Shulkery w miastach Endu mogą upuszczać skorupy potrzebne do stworzenia shulkerowej skrzyni.", en: "Shulkers in End Cities can drop shells used to craft a shulker box." },
+    { pl: "Trzcina cukrowa może rosnąć na odpowiednich blokach sąsiadujących z wodą.", en: "Sugar cane can grow on suitable blocks adjacent to water." }
+];
+function getLocalizedQuestion(question) {
+    return currentLanguage === "en" && question.en
+        ? { text: question.en.question, answers: question.en.answers, explanation: question.en.explanation }
+        : { text: question[0], answers: question[1], explanation: question[3] };
+}
+function applyLanguage(language, rerender = true) {
+    currentLanguage = language === "en" ? "en" : "pl";
+    const strings = uiText[currentLanguage];
+    document.documentElement.lang = currentLanguage;
+    document.title = "Minecraft Quiz";
+    const meta = document.getElementById("metaDescription");
+    if (meta) meta.content = strings.metaDescription;
+    document.querySelectorAll("[data-i18n]").forEach(element => {
+        const key = element.dataset.i18n;
+        if (strings[key] !== undefined && typeof strings[key] !== "function") element.textContent = strings[key];
+    });
+    document.querySelectorAll("[data-i18n-aria]").forEach(element => {
+        const key = element.dataset.i18nAria;
+        if (strings[key]) element.setAttribute("aria-label", strings[key]);
+    });
+    if (nextResultFactButton) nextResultFactButton.setAttribute("aria-label", strings.resultFactAria);
+    languageButtons.forEach(button => {
+        const active = button.dataset.language === currentLanguage;
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", String(active));
+    });
+    try { localStorage.setItem(languageStorageKey, currentLanguage); } catch (_) {}
+    updateCountAvailability();
+    updateQuizInfo();
+    renderFact(currentFactIndex < 0 ? undefined : currentFactIndex);
+    if (rerender && currentQuestions.length && quizScreen.classList.contains("active")) {
+        const wasAnswered = answered;
+        const previousSelection = lastSelectedIndex;
+        loadQuestion();
+        if (wasAnswered && previousSelection !== null) restoreAnswerState(previousSelection);
+    }
+    if (resultScreen.classList.contains("active") && rerender) showResults();
+    updateResultFact();
+    if (!startButton.disabled) startButtonLabel.textContent = strings.startQuiz;
+}
+function renderFact(index) {
+    if (!factText || !factCounter) return;
+    if (typeof index !== "number" || index < 0 || index >= facts.length) {
+        let next = Math.floor(Math.random() * facts.length);
+        if (facts.length > 1 && next === lastFactIndex) next = (next + 1) % facts.length;
+        currentFactIndex = next;
+    } else currentFactIndex = index;
+    lastFactIndex = currentFactIndex;
+    factText.classList.remove("fact-changing");
+    void factText.offsetWidth;
+    factText.textContent = facts[currentFactIndex][currentLanguage];
+    factCounter.textContent = `${String(currentFactIndex + 1).padStart(2, "0")} / ${String(facts.length).padStart(2, "0")}`;
+    if (resultFactText) resultFactText.textContent = facts[currentFactIndex][currentLanguage];
+    factText.classList.add("fact-changing");
+}
+function updateResultFact() {
+    if (resultFactText && currentFactIndex >= 0 && facts[currentFactIndex]) {
+        resultFactText.textContent = facts[currentFactIndex][currentLanguage];
+    }
+}
+function restoreAnswerState(selectedIndex) {
+    const current = currentQuestions[currentIndex];
+    const localizedQuestion = getLocalizedQuestion(current);
+    const buttons = [...answersContainer.querySelectorAll(".answer-button")];
+    buttons.forEach((button, index) => {
+        button.disabled = true;
+        if (index === current[2]) button.classList.add("correct");
+        if (index === selectedIndex && index !== current[2]) button.classList.add("incorrect");
+    });
+    answered = true;
+    lastSelectedIndex = selectedIndex;
+    feedbackMessage.textContent = (selectedIndex === current[2] ? uiText[currentLanguage].correctStart : uiText[currentLanguage].incorrectStart) + localizedQuestion.explanation;
+    feedbackMessage.className = `feedback-message ${selectedIndex === current[2] ? "success" : "error"}`;
+    nextButton.disabled = false;
+}
+function updateQuizInfo() {
+    if (selectedQuestionCount) selectedQuestionCount.textContent = String(Math.min(selectedCount, getQuestionPool().length));
+    if (estimatedTime) estimatedTime.textContent = uiText[currentLanguage].timeMinutes(Math.min(selectedCount, getQuestionPool().length));
+}
 function shuffle(items) {
     const copy = [...items];
     for (let i = copy.length - 1; i > 0; i--) {
@@ -126,26 +349,28 @@ function startQuiz() {
     answered = false;
     scoreDisplay.textContent = score;
     totalQuestionsElement.textContent = currentQuestions.length.toString().padStart(2, "0");
-    categoryTitle.textContent = categoryInfo[selectedCategory].title;
+    categoryTitle.textContent = categoryInfo[selectedCategory][currentLanguage];
     categoryIcon.textContent = categoryInfo[selectedCategory].icon;
     showScreen(quizScreen);
     loadQuestion();
 }
 function loadQuestion() {
     answered = false;
+    lastSelectedIndex = null;
     const current = currentQuestions[currentIndex];
     const questionNumber = currentIndex + 1;
     currentQuestionElement.textContent = questionNumber.toString().padStart(2, "0");
     questionNumberLabel.textContent = questionNumber.toString().padStart(2, "0");
-    questionText.textContent = current[0];
+    const localizedQuestion = getLocalizedQuestion(current);
+    questionText.textContent = localizedQuestion.text;
     answersContainer.replaceChildren();
     feedbackMessage.textContent = "";
     feedbackMessage.className = "feedback-message";
     nextButton.disabled = true;
-    nextButtonText.textContent = currentIndex === currentQuestions.length - 1 ? "Zobacz wynik" : "Następne pytanie";
+    nextButtonText.textContent = currentIndex === currentQuestions.length - 1 ? uiText[currentLanguage].seeResult : uiText[currentLanguage].nextQuestion;
     updateProgress();
     ["A", "B", "C", "D"].forEach((letter, index) => {
-        const answer = current[1][index];
+        const answer = localizedQuestion.answers[index];
         const button = document.createElement("button");
         button.type = "button";
         button.className = "answer-button";
@@ -158,7 +383,9 @@ function loadQuestion() {
 function selectAnswer(selectedIndex, selectedButton) {
     if (answered) return;
     answered = true;
+    lastSelectedIndex = selectedIndex;
     const current = currentQuestions[currentIndex];
+    const localizedQuestion = getLocalizedQuestion(current);
     const allAnswerButtons = answersContainer.querySelectorAll(".answer-button");
     const isCorrect = selectedIndex === current[2];
     allAnswerButtons.forEach((button, index) => {
@@ -168,11 +395,11 @@ function selectAnswer(selectedIndex, selectedButton) {
     if (isCorrect) {
         score++;
         selectedButton.classList.add("correct");
-        feedbackMessage.textContent = "✦ Świetnie! " + current[3];
+        feedbackMessage.textContent = uiText[currentLanguage].correctStart + localizedQuestion.explanation;
         feedbackMessage.classList.add("success");
     } else {
         selectedButton.classList.add("incorrect");
-        feedbackMessage.textContent = "♡ Nie tym razem! " + current[3];
+        feedbackMessage.textContent = uiText[currentLanguage].incorrectStart + localizedQuestion.explanation;
         feedbackMessage.classList.add("error");
     }
     scoreDisplay.textContent = score;
@@ -201,26 +428,27 @@ function showResults() {
     resultPercentage.textContent = `${percentage}%`;
     resultProgressFill.style.width = "0%";
     requestAnimationFrame(() => requestAnimationFrame(() => { resultProgressFill.style.width = `${percentage}%`; }));
+    const strings = uiText[currentLanguage];
     if (percentage === 100) {
-        resultBadge.textContent = "👑"; resultTitle.textContent = "Mistrz Minecrafta!";
-        resultDescription.textContent = "Perfekcyjny wynik! Ten świat nie ma przed Tobą tajemnic.";
-        resultMessage.textContent = "Wszystkie odpowiedzi poprawne. Prawdziwa legenda! ✨";
+        resultBadge.textContent = "👑"; resultTitle.textContent = strings.resultPerfectTitle;
+        resultDescription.textContent = strings.resultPerfectDescription;
+        resultMessage.textContent = strings.resultPerfectMessage;
     } else if (percentage >= 80) {
-        resultBadge.textContent = "🏆"; resultTitle.textContent = "Niesamowity wynik!";
-        resultDescription.textContent = "Masz naprawdę imponującą wiedzę o Minecraft.";
-        resultMessage.textContent = "Jesteś o krok od perfekcji. Tak trzymaj! 💜";
+        resultBadge.textContent = "🏆"; resultTitle.textContent = strings.result80Title;
+        resultDescription.textContent = strings.result80Description;
+        resultMessage.textContent = strings.result80Message;
     } else if (percentage >= 60) {
-        resultBadge.textContent = "💎"; resultTitle.textContent = "Świetny odkrywca!";
-        resultDescription.textContent = "Znasz już sporo sekretów tego świata.";
-        resultMessage.textContent = "Jeszcze kilka przygód i zostaniesz ekspertem! 🌸";
+        resultBadge.textContent = "💎"; resultTitle.textContent = strings.result60Title;
+        resultDescription.textContent = strings.result60Description;
+        resultMessage.textContent = strings.result60Message;
     } else if (percentage >= 40) {
-        resultBadge.textContent = "🌸"; resultTitle.textContent = "Odkrywaj dalej!";
-        resultDescription.textContent = "Każdy blok to nowa okazja do nauki.";
-        resultMessage.textContent = "Spróbuj ponownie i zobacz, ile punktów zdobędziesz! ✨";
+        resultBadge.textContent = "🌸"; resultTitle.textContent = strings.result40Title;
+        resultDescription.textContent = strings.result40Description;
+        resultMessage.textContent = strings.result40Message;
     } else {
-        resultBadge.textContent = "🌱"; resultTitle.textContent = "Nowa przygoda!";
-        resultDescription.textContent = "Każdy ekspert kiedyś zaczynał.";
-        resultMessage.textContent = "Nie poddawaj się — kolejna próba może być znacznie lepsza! 💗";
+        resultBadge.textContent = "🌱"; resultTitle.textContent = strings.resultLowTitle;
+        resultDescription.textContent = strings.resultLowDescription;
+        resultMessage.textContent = strings.resultLowMessage;
     }
 }
 function createParticles() {
@@ -257,10 +485,11 @@ themeButtons.forEach(button => button.addEventListener("click", () => applyTheme
 applyTheme((() => { try { return localStorage.getItem(themeStorageKey) || "lavender"; } catch (_) { return "lavender"; } })());
 function updateCountAvailability() {
     const categoryOnly = selectedCategory !== "all";
+    const strings = uiText[currentLanguage];
     document.querySelectorAll("[data-count]").forEach(option => {
         const unavailable = categoryOnly && Number(option.dataset.count) > 10;
         option.disabled = unavailable;
-        option.title = unavailable ? "Ta kategoria ma obecnie 10 unikalnych pytań. Wybierz „Wszystko”, aby zagrać dłuższy quiz." : "";
+        option.title = unavailable ? strings.countDisabledTitle : "";
     });
     if (categoryOnly && selectedCount > 10) {
         selectedCount = 10;
@@ -269,10 +498,10 @@ function updateCountAvailability() {
             option.classList.toggle("selected", selected);
             option.setAttribute("aria-pressed", String(selected));
         });
-        selectedQuestionCount.textContent = selectedCount;
     }
     const countHint = document.querySelector(".question-count-copy span");
-    countHint.textContent = categoryOnly ? "Ta kategoria ma 10 unikalnych pytań" : "Wybierz tempo swojej przygody · do 50 pytań";
+    if (countHint) countHint.textContent = categoryOnly ? strings.countHintCategory : strings.countHintAll;
+    updateQuizInfo();
 }
 document.querySelectorAll("[data-category]").forEach(button => {
     button.addEventListener("click", () => {
@@ -293,7 +522,7 @@ document.querySelectorAll("[data-count]").forEach(button => {
             option.classList.toggle("selected", selected);
             option.setAttribute("aria-pressed", String(selected));
         });
-        selectedQuestionCount.textContent = selectedCount;
+        updateQuizInfo();
     });
 });
 updateCountAvailability();
@@ -301,15 +530,20 @@ startButton.addEventListener("click", () => {
     if (startButton.disabled) return;
     startButton.disabled = true;
     chestScene.classList.add("chest-opening");
-    startButton.querySelector("span:first-child").textContent = "Otwieranie skarbu...";
+    startButtonLabel.textContent = uiText[currentLanguage].openingChest;
     window.setTimeout(() => {
         chestScene.classList.remove("chest-opening");
         startButton.disabled = false;
-        startButton.querySelector("span:first-child").textContent = "Rozpoznaj quiz";
+        startButtonLabel.textContent = uiText[currentLanguage].startQuiz;
         startQuiz();
     }, 650);
 });
 nextButton.addEventListener("click", nextQuestion);
 restartButton.addEventListener("click", () => showScreen(welcomeScreen));
+languageButtons.forEach(button => button.addEventListener("click", () => applyLanguage(button.dataset.language)));
+nextFactButton.addEventListener("click", () => renderFact());
+nextResultFactButton.addEventListener("click", () => renderFact());
 createParticles();
 updateProgress();
+applyLanguage(currentLanguage, false);
+renderFact();

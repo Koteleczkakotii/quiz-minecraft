@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Minecraft Quiz — sprawdź swoją wiedzę o świecie Minecraft!">
+    <meta name="description" id="metaDescription" content="Minecraft Quiz — sprawdź swoją wiedzę o świecie Minecraft!">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,13 +18,18 @@
     </div>
     <div class="particles" id="particles" aria-hidden="true"></div>
     <header class="topbar">
-        <a href="#" class="logo" aria-label="Minecraft Quiz — strona główna">
+        <a href="#" class="logo" aria-label="Minecraft Quiz — strona główna" data-i18n-aria="homeAria">
             <span class="logo-icon">✦</span>
             <span>Mine<span class="logo-accent">craft</span></span>
         </a>
         <div class="topbar-right">
+            <div class="language-switch" role="group" aria-label="Wybierz język" data-i18n-aria="languageAria">
+                <button type="button" class="language-button active" data-language="pl" aria-pressed="true">PL</button>
+                <span aria-hidden="true">|</span>
+                <button type="button" class="language-button" data-language="en" aria-pressed="false">EN</button>
+            </div>
             <span class="status-dot"></span>
-            <span class="status-text">QUIZ TIME</span>
+            <span class="status-text" data-i18n="status">CZAS NA QUIZ</span>
         </div>
     </header>
     <main class="main-container">
@@ -32,7 +37,7 @@
             <div class="welcome-content">
                 <div class="eyebrow">
                     <span>✧</span>
-                    MAGICZNA PRZYGODA W MINECRAFCIE
+                    <span data-i18n="eyebrow">MAGICZNA PRZYGODA W MINECRAFCIE</span>
                     <span>✧</span>
                 </div>
 
@@ -54,49 +59,49 @@
                 </div>
 
                 <h1>MINECRAFT<br><span class="gradient-text">QUIZ</span></h1>
-                <p class="welcome-description">Sprawdź, jak dobrze znasz swój świat!</p>
+                <p class="welcome-description" data-i18n="welcomeDescription">Sprawdź, jak dobrze znasz swój świat!</p>
 
-                <div class="theme-picker" aria-label="Wybierz motyw quizu">
-                    <p class="theme-picker-title">WYBIERZ SWÓJ MOTYW</p>
+                <div class="theme-picker" aria-label="Wybierz motyw quizu" data-i18n-aria="themeAria">
+                    <p class="theme-picker-title" data-i18n="themeTitle">WYBIERZ SWÓJ MOTYW</p>
                     <div class="theme-options">
                         <button class="theme-option" type="button" data-theme-choice="lavender" aria-pressed="false">
                             <span class="theme-swatch lavender-swatch"><span>✦</span></span>
                             <span class="theme-option-name">Lavender Dream</span>
-                            <span class="theme-option-description">Lawendowa magia</span>
+                            <span class="theme-option-description" data-i18n="themeLavender">Lawendowa magia</span>
                         </button>
                         <button class="theme-option" type="button" data-theme-choice="cherry" aria-pressed="false">
                             <span class="theme-swatch cherry-swatch"><span>🌸</span></span>
                             <span class="theme-option-name">Cherry Blossom</span>
-                            <span class="theme-option-description">Kwiatowa kraina</span>
+                            <span class="theme-option-description" data-i18n="themeCherry">Kwiatowa kraina</span>
                         </button>
                         <button class="theme-option" type="button" data-theme-choice="ender" aria-pressed="false">
                             <span class="theme-swatch ender-swatch"><span>✧</span></span>
                             <span class="theme-option-name">Ender Magic</span>
-                            <span class="theme-option-description">Tajemnica Endu</span>
+                            <span class="theme-option-description" data-i18n="themeEnder">Tajemnica Endu</span>
                         </button>
                     </div>
                 </div>
 
                 <section class="quiz-setup" aria-labelledby="categoryHeading">
                     <div class="setup-heading">
-                        <span class="setup-kicker">TWOJA WYPRAWA, TWOJE ZASADY</span>
-                        <h2 id="categoryHeading">Co dziś odkrywamy?</h2>
-                        <p>Wybierz kategorię i dopasuj długość quizu do siebie.</p>
+                        <span class="setup-kicker" data-i18n="setupKicker">TWOJA WYPRAWA, TWOJE ZASADY</span>
+                        <h2 id="categoryHeading" data-i18n="categoryHeading">Co dziś odkrywamy?</h2>
+                        <p data-i18n="setupDescription">Wybierz kategorię i dopasuj długość quizu do siebie.</p>
                     </div>
-                    <div class="category-grid" id="categoryGrid" role="group" aria-label="Wybierz kategorię quizu">
-                        <button class="category-card selected" type="button" data-category="all" aria-pressed="true"><span class="category-card-icon">🌎</span><span class="category-card-title">Wszystko</span><span class="category-card-description">Miks całego Minecrafta</span><span class="category-card-check">✓</span></button>
-                        <button class="category-card" type="button" data-category="biomes" aria-pressed="false"><span class="category-card-icon">🌿</span><span class="category-card-title">Biomy</span><span class="category-card-description">Krainy i ich sekrety</span><span class="category-card-check">✓</span></button>
-                        <button class="category-card" type="button" data-category="mobs" aria-pressed="false"><span class="category-card-icon">🐲</span><span class="category-card-title">Moby</span><span class="category-card-description">Przyjazne i groźne stworzenia</span><span class="category-card-check">✓</span></button>
-                        <button class="category-card" type="button" data-category="resources" aria-pressed="false"><span class="category-card-icon">💎</span><span class="category-card-title">Surowce</span><span class="category-card-description">Rudy, minerały i bloki</span><span class="category-card-check">✓</span></button>
-                        <button class="category-card" type="button" data-category="crafting" aria-pressed="false"><span class="category-card-icon">🧰</span><span class="category-card-title">Crafting</span><span class="category-card-description">Przedmioty i receptury</span><span class="category-card-check">✓</span></button>
-                        <button class="category-card" type="button" data-category="dimensions" aria-pressed="false"><span class="category-card-icon">🌌</span><span class="category-card-title">Wymiary i bossowie</span><span class="category-card-description">Nether, End i wielkie walki</span><span class="category-card-check">✓</span></button>
+                    <div class="category-grid" id="categoryGrid" role="group" aria-label="Wybierz kategorię quizu" data-i18n-aria="categoryAria">
+                        <button class="category-card selected" type="button" data-category="all" aria-pressed="true"><span class="category-card-icon">🌎</span><span class="category-card-title" data-i18n="catAll">Wszystko</span><span class="category-card-description" data-i18n="catAllDesc">Miks całego Minecrafta</span><span class="category-card-check">✓</span></button>
+                        <button class="category-card" type="button" data-category="biomes" aria-pressed="false"><span class="category-card-icon">🌿</span><span class="category-card-title" data-i18n="catBiomes">Biomy</span><span class="category-card-description" data-i18n="catBiomesDesc">Krainy i ich sekrety</span><span class="category-card-check">✓</span></button>
+                        <button class="category-card" type="button" data-category="mobs" aria-pressed="false"><span class="category-card-icon">🐲</span><span class="category-card-title" data-i18n="catMobs">Moby</span><span class="category-card-description" data-i18n="catMobsDesc">Przyjazne i groźne stworzenia</span><span class="category-card-check">✓</span></button>
+                        <button class="category-card" type="button" data-category="resources" aria-pressed="false"><span class="category-card-icon">💎</span><span class="category-card-title" data-i18n="catResources">Surowce</span><span class="category-card-description" data-i18n="catResourcesDesc">Rudy, minerały i bloki</span><span class="category-card-check">✓</span></button>
+                        <button class="category-card" type="button" data-category="crafting" aria-pressed="false"><span class="category-card-icon">🧰</span><span class="category-card-title" data-i18n="catCrafting">Crafting</span><span class="category-card-description" data-i18n="catCraftingDesc">Przedmioty i receptury</span><span class="category-card-check">✓</span></button>
+                        <button class="category-card" type="button" data-category="dimensions" aria-pressed="false"><span class="category-card-icon">🌌</span><span class="category-card-title" data-i18n="catDimensions">Wymiary i bossowie</span><span class="category-card-description" data-i18n="catDimensionsDesc">Nether, End i wielkie walki</span><span class="category-card-check">✓</span></button>
                     </div>
                     <div class="question-count-picker">
-                        <div class="question-count-copy"><strong>Ile pytań?</strong><span>Wybierz tempo swojej przygody</span></div>
-                        <div class="question-count-options" role="group" aria-label="Liczba pytań">
-                            <button type="button" class="count-option selected" data-count="10" aria-pressed="true"><strong>10</strong><span>Szybki</span></button>
-                            <button type="button" class="count-option" data-count="20" aria-pressed="false"><strong>20</strong><span>Klasyczny</span></button>
-                            <button type="button" class="count-option" data-count="30" aria-pressed="false"><strong>30</strong><span>Ekspert</span></button>
+                        <div class="question-count-copy"><strong data-i18n="countTitle">Ile pytań?</strong><span data-i18n="countHint">Wybierz tempo swojej przygody</span></div>
+                        <div class="question-count-options" role="group" aria-label="Liczba pytań" data-i18n-aria="countAria">
+                            <button type="button" class="count-option selected" data-count="10" aria-pressed="true"><strong>10</strong><span data-i18n="countQuick">Szybki</span></button>
+                            <button type="button" class="count-option" data-count="20" aria-pressed="false"><strong>20</strong><span data-i18n="countClassic">Klasyczny</span></button>
+                            <button type="button" class="count-option" data-count="30" aria-pressed="false"><strong>30</strong><span data-i18n="countExpert">Ekspert</span></button>
                         </div>
                     </div>
                 </section>
@@ -104,24 +109,30 @@
                 <div class="quiz-info">
                     <div class="info-item">
                         <span class="info-icon">❔</span>
-                        <div><strong id="selectedQuestionCount">10</strong><span>pytań</span></div>
+                        <div><strong id="selectedQuestionCount">10</strong><span data-i18n="questionsLabel">pytań</span></div>
                     </div>
                     <div class="info-divider"></div>
                     <div class="info-item">
                         <span class="info-icon">⏱️</span>
-                        <div><strong>~3 min</strong><span>rozgrywki</span></div>
+                        <div><strong id="estimatedTime">~3 min</strong><span data-i18n="gameTime">rozgrywki</span></div>
                     </div>
                     <div class="info-divider"></div>
                     <div class="info-item">
                         <span class="info-icon">💜</span>
-                        <div><strong>Easy–Pro</strong><span>poziom</span></div>
+                        <div><strong data-i18n="levelRange">Łatwy–Pro</strong><span data-i18n="levelLabel">poziom</span></div>
                     </div>
                 </div>
                 <button class="primary-button adventure-button" id="startButton" type="button">
-                    <span>Rozpoznaj quiz</span>
+                    <span id="startButtonLabel" data-i18n="startQuiz">Rozpocznij quiz</span>
                     <span class="button-arrow">✨</span>
                 </button>
-                <p class="welcome-footer">STWORZONE Z <span>♥</span> DLA FANÓW MINECRAFTA</p>
+                <p class="welcome-footer" data-i18n="welcomeFooter">STWORZONE Z <span>♥</span> DLA FANÓW MINECRAFTA</p>
+                <section class="fact-card" aria-labelledby="factHeading">
+                    <div class="fact-card-top"><span class="fact-book-icon">📖</span><span class="fact-kicker" data-i18n="factKicker">MAGICZNA SKRZYNIA WIEDZY</span></div>
+                    <h2 id="factHeading" data-i18n="factHeading">Czy wiesz, że…?</h2>
+                    <p class="fact-text" id="factText" aria-live="polite"></p>
+                    <div class="fact-card-bottom"><span class="fact-counter" id="factCounter">01 / 20</span><button type="button" class="fact-next-button" id="nextFactButton"><span data-i18n="nextFact">Odkryj kolejną ciekawostkę</span><span aria-hidden="true">→</span></button></div>
+                </section>
             </div>
         </section>
         <section class="screen quiz-screen" id="quizScreen">
@@ -129,8 +140,8 @@
                 <div class="quiz-category">
                     <span class="category-icon">⛏️</span>
                     <div>
-                        <span class="category-label">CATEGORY</span>
-                        <strong>Minecraft knowledge</strong>
+                        <span class="category-label" data-i18n="categoryLabel">KATEGORIA</span>
+                        <strong id="quizCategoryTitle">Wiedza o Minecrafcie</strong>
                     </div>
                 </div>
                 <div class="question-counter">
@@ -139,29 +150,29 @@
                     <span id="totalQuestions">10</span>
                 </div>
             </div>
-            <div class="progress-track" role="progressbar" aria-label="Postęp quizu" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressTrack">
+            <div class="progress-track" role="progressbar" aria-label="Postęp quizu" data-i18n-aria="progressAria" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressTrack">
                 <div class="progress-fill" id="progressFill"></div>
                 <div class="progress-sparkle">✦</div>
             </div>
             <div class="question-content" id="questionContent">
                 <div class="question-label">
                     <span class="question-number-icon">✧</span>
-                    QUESTION <span id="questionNumberLabel">01</span>
+                    <span data-i18n="questionLabel">PYTANIE</span> <span id="questionNumberLabel">01</span>
                 </div>
                 <h2 id="questionText">Loading question...</h2>
-                <p class="question-hint">Choose one correct answer.</p>
+                <p class="question-hint" data-i18n="questionHint">Wybierz jedną poprawną odpowiedź.</p>
                 <div class="answers-grid" id="answersContainer"></div>
                 <div class="feedback-message" id="feedbackMessage" role="status" aria-live="polite"></div>
             </div>
             <div class="quiz-footer">
                 <div class="score-display">
                     <span class="score-icon">✦</span>
-                    <span>Your score:</span>
+                    <span data-i18n="yourScore">Twój wynik:</span>
                     <strong id="scoreDisplay">0</strong>
-                    <span class="score-unit">pkt</span>
+                    <span class="score-unit" data-i18n="points">pkt</span>
                 </div>
                 <button class="next-button" id="nextButton" disabled>
-                    <span id="nextButtonText">Next question</span>
+                    <span id="nextButtonText">Następne pytanie</span>
                     <span>→</span>
                 </button>
             </div>
@@ -172,12 +183,12 @@
                 <div class="result-decoration decoration-right">✧</div>
                 <div class="result-badge" id="resultBadge">🏆</div>
                 <div class="eyebrow result-eyebrow">
-                    QUIZ COMPLETED
+                    <span data-i18n="quizCompleted">QUIZ UKOŃCZONY</span>
                 </div>
-                <h1 id="resultTitle">Amazing!</h1>
-                <p class="result-description" id="resultDescription">Check your score!</p>
+                <h1 id="resultTitle">Niesamowicie!</h1>
+                <p class="result-description" id="resultDescription">Sprawdź swój wynik!</p>
                 <div class="result-card">
-                    <span class="result-card-label">YOUR SCORE</span>
+                    <span class="result-card-label" data-i18n="resultScore">TWÓJ WYNIK</span>
                     <div class="result-score">
                         <span id="finalScore">0</span>
                         <span class="result-score-divider">/</span>
@@ -187,23 +198,28 @@
                         <div class="result-progress-fill" id="resultProgressFill"></div>
                     </div>
                     <div class="result-percentage">
-                        <span>Right answer</span>
+                        <span data-i18n="correctAnswers">Poprawne odpowiedzi</span>
                         <strong id="resultPercentage">0%</strong>
                     </div>
                 </div>
                 <div class="result-message" id="resultMessage"></div>
+                <section class="result-fact" aria-label="Minecraft fact">
+                    <span class="result-fact-icon">💡</span>
+                    <div class="result-fact-copy"><strong data-i18n="resultFactTitle">Ciekawostka na koniec</strong><p id="resultFactText"></p></div>
+                    <button type="button" id="nextResultFactButton" class="result-fact-next" aria-label="Next fact">↻</button>
+                </section>
                 <button class="primary-button replay-button" id="restartButton">
-                    <span>Try again</span>
+                    <span data-i18n="tryAgain">Zagraj ponownie</span>
                     <span class="button-arrow">↻</span>
                 </button>
-                <p class="welcome-footer">EVERY BLOCK HAS A STORY <span>♥</span></p>
+                <p class="welcome-footer" data-i18n="resultFooter">KAŻDY BLOK MA SWOJĄ HISTORIĘ <span>♥</span></p>
             </div>
         </section>
     </main>
     <footer class="site-footer">
         <span>MINECRAFT QUIZ</span>
         <span class="footer-separator">✦</span>
-        <span>BUILD YOUR KNOWLEDGE</span>
+        <span data-i18n="footerTagline">ROZWIJAJ SWOJĄ WIEDZĘ</span>
         <span class="footer-copyright">© 2026</span>
     </footer>
 </body>
