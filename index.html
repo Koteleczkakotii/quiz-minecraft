@@ -11,12 +11,15 @@
     <title>Minecraft Quiz</title>
 </head>
 <body>
+    <!-- Dekoracyjne poświaty w tle strony -->
     <div class="background-effects" aria-hidden="true">
         <div class="glow glow-one"></div>
         <div class="glow glow-two"></div>
         <div class="glow glow-three"></div>
     </div>
+    <!-- Drobne, animowane ozdobniki w tle generowane przez JavaScript -->
     <div class="particles" id="particles" aria-hidden="true"></div>
+    <!-- Górny pasek: logo, wybór języka i status quizu -->
     <header class="topbar">
         <a href="#" class="logo" aria-label="Minecraft Quiz — strona główna" data-i18n-aria="homeAria">
             <span class="logo-icon">✦</span>
@@ -32,7 +35,9 @@
             <span class="status-text" data-i18n="status">CZAS NA QUIZ</span>
         </div>
     </header>
+    <!-- Główna część strony – znajdują się tu kolejne ekrany aplikacji -->
     <main class="main-container">
+        <!-- EKRAN POWITALNY: wybór motywu, kategorii i liczby pytań -->
         <section class="screen welcome-screen active" id="welcomeScreen">
             <div class="welcome-content">
                 <div class="eyebrow">
@@ -135,6 +140,7 @@
                 </section>
             </div>
         </section>
+        <!-- EKRAN QUIZU: pytanie, odpowiedzi, postęp i wynik bieżący -->
         <section class="screen quiz-screen" id="quizScreen">
             <div class="quiz-header">
                 <div class="quiz-category">
@@ -177,6 +183,7 @@
                 </button>
             </div>
         </section>
+        <!-- EKRAN WYNIKÓW: podsumowanie punktów po zakończeniu quizu -->
         <section class="screen result-screen" id="resultScreen">
             <div class="result-content">
                 <div class="result-decoration decoration-left">✦</div>
@@ -216,6 +223,7 @@
             </div>
         </section>
     </main>
+    <!-- Stopka strony -->
     <footer class="site-footer">
         <span>MINECRAFT QUIZ</span>
         <span class="footer-separator">✦</span>
