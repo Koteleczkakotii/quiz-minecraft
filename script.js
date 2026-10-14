@@ -1,3 +1,4 @@
+// Pytania w języku polskim. Każde pytanie zawiera treść, odpowiedzi, indeks poprawnej odpowiedzi i wyjaśnienie.
 const questionBank = {
     biomes: [
         ["W którym biomie najczęściej spotkasz kaktusy?", ["Dżungla", "Pustynia", "Tajga", "Bagno"], 1, "Kaktusy naturalnie rosną na pustyni."],
@@ -60,6 +61,7 @@ const questionBank = {
         ["Który wymiar jest domem dla ghastów i fortec Netheru?", ["Overworld", "Nether", "The End", "Wymiar Kresu"], 1, "Ghasty i fortece Netheru znajdują się w Netherze."],
     ]
 };
+// Angielskie wersje pytań, wykorzystywane po przełączeniu języka na EN.
 const englishQuestionBank = {
     biomes: [
         ["In which biome are you most likely to find cacti?", ["Jungle", "Desert", "Taiga", "Swamp"], "Cacti naturally grow in deserts."],
@@ -122,6 +124,7 @@ const englishQuestionBank = {
         ["Which dimension is home to ghasts and Nether fortresses?", ["Overworld", "Nether", "The End", "The End dimension"], "Ghasts and Nether fortresses are found in the Nether."],
     ]
 };
+// Nazwy i ikony kategorii wyświetlane w interfejsie.
 const categoryInfo = {
     all: { pl: "Wszystko", en: "Everything", icon: "🌎" },
     biomes: { pl: "Biomy", en: "Biomes", icon: "🌿" },
@@ -130,6 +133,7 @@ const categoryInfo = {
     crafting: { pl: "Crafting", en: "Crafting", icon: "🧰" },
     dimensions: { pl: "Wymiary i bossowie", en: "Dimensions & bosses", icon: "🌌" }
 };
+// Pobranie elementów HTML, które będą aktualizowane przez skrypt.
 const welcomeScreen = document.getElementById("welcomeScreen");
 const quizScreen = document.getElementById("quizScreen");
 const resultScreen = document.getElementById("resultScreen");
@@ -183,6 +187,7 @@ Object.keys(questionBank).forEach(category => {
         question.en = { question: englishQuestion[0], answers: englishQuestion[1], explanation: englishQuestion[2] };
     });
 });
+// Teksty interfejsu w języku polskim i angielskim.
 const uiText = {
     pl: {
         languageAria: "Wybierz język", progressAria: "Postęp quizu", status: "CZAS NA QUIZ", eyebrow: "MAGICZNA PRZYGODA W MINECRAFCIE", welcomeDescription: "Sprawdź, jak dobrze znasz swój świat!",
@@ -221,6 +226,7 @@ const uiText = {
         timeMinutes: n => `~${Math.max(1, Math.ceil(n * 0.3))} min`, homeAria: "Minecraft Quiz — home", metaDescription: "Minecraft Quiz — test your knowledge of the Minecraft world!"
     }
 };
+// Ciekawostki o Minecraftcie pokazywane na ekranie powitalnym i wyników.
 const facts = [
     { pl: "Creeper powstał przez pomyłkę podczas tworzenia modelu świni — jego nietypowy kształt stał się później ikoną gry.", en: "The Creeper was created by mistake while designing a pig model — its unusual shape later became an icon of the game." },
     { pl: "Pierwsza publiczna wersja Minecrafta ukazała się 17 maja 2009 roku.", en: "The first public version of Minecraft was released on May 17, 2009." },
@@ -243,11 +249,13 @@ const facts = [
     { pl: "Shulkery w miastach Endu mogą upuszczać skorupy potrzebne do stworzenia shulkerowej skrzyni.", en: "Shulkers in End Cities can drop shells used to craft a shulker box." },
     { pl: "Trzcina cukrowa może rosnąć na odpowiednich blokach sąsiadujących z wodą.", en: "Sugar cane can grow on suitable blocks adjacent to water." }
 ];
+// Zwraca treść pytania i odpowiedzi w aktualnie wybranym języku.
 function getLocalizedQuestion(question) {
     return currentLanguage === "en" && question.en
         ? { text: question.en.question, answers: question.en.answers, explanation: question.en.explanation }
         : { text: question[0], answers: question[1], explanation: question[3] };
 }
+// Zmienia język tekstów na stronie i odświeża elementy zależne od języka.
 function applyLanguage(language, rerender = true) {
     currentLanguage = language === "en" ? "en" : "pl";
     const strings = uiText[currentLanguage];
@@ -283,6 +291,7 @@ function applyLanguage(language, rerender = true) {
     updateResultFact();
     if (!startButton.disabled) startButtonLabel.textContent = strings.startQuiz;
 }
+// Wyświetla ciekawostkę; bez podanego indeksu wybiera inną losową ciekawostkę.
 function renderFact(index) {
     if (!factText || !factCounter) return;
     if (typeof index !== "number" || index < 0 || index >= facts.length) {
@@ -298,11 +307,13 @@ function renderFact(index) {
     if (resultFactText) resultFactText.textContent = facts[currentFactIndex][currentLanguage];
     factText.classList.add("fact-changing");
 }
+// Aktualizuje ciekawostkę na ekranie wyników.
 function updateResultFact() {
     if (resultFactText && currentFactIndex >= 0 && facts[currentFactIndex]) {
         resultFactText.textContent = facts[currentFactIndex][currentLanguage];
     }
 }
+// Przywraca oznaczenie odpowiedzi, np. po zmianie języka w trakcie pytania.
 function restoreAnswerState(selectedIndex) {
     const current = currentQuestions[currentIndex];
     const localizedQuestion = getLocalizedQuestion(current);
@@ -318,10 +329,12 @@ function restoreAnswerState(selectedIndex) {
     feedbackMessage.className = `feedback-message ${selectedIndex === current[2] ? "success" : "error"}`;
     nextButton.disabled = false;
 }
+// Aktualizuje liczbę pytań i szacowany czas quizu.
 function updateQuizInfo() {
     if (selectedQuestionCount) selectedQuestionCount.textContent = String(Math.min(selectedCount, getQuestionPool().length));
     if (estimatedTime) estimatedTime.textContent = uiText[currentLanguage].timeMinutes(Math.min(selectedCount, getQuestionPool().length));
 }
+// Miesza kolejność elementów, aby pytania pojawiały się w losowej kolejności.
 function shuffle(items) {
     const copy = [...items];
     for (let i = copy.length - 1; i > 0; i--) {
@@ -330,20 +343,22 @@ function shuffle(items) {
     }
     return copy;
 }
+// Zwraca pytania z wybranej kategorii albo ze wszystkich kategorii.
 function getQuestionPool() {
     return selectedCategory === "all"
         ? Object.values(questionBank).flat()
         : questionBank[selectedCategory];
 }
+// Ukrywa pozostałe ekrany i pokazuje wskazany ekran aplikacji.
 function showScreen(screenToShow) {
     [welcomeScreen, quizScreen, resultScreen].forEach(screen => screen.classList.remove("active"));
     screenToShow.classList.add("active");
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
+// Rozpoczyna nową rozgrywkę: losuje pytania, zeruje wynik i pokazuje pierwsze pytanie.
 function startQuiz() {
     const pool = getQuestionPool();
     currentQuestions = shuffle(pool).slice(0, Math.min(selectedCount, pool.length));
-    // The mixed quiz has 50 unique questions; category quizzes currently have 10 unique questions each.
     currentIndex = 0;
     score = 0;
     answered = false;
@@ -354,6 +369,7 @@ function startQuiz() {
     showScreen(quizScreen);
     loadQuestion();
 }
+// Wstawia aktualne pytanie i tworzy cztery przyciski odpowiedzi.
 function loadQuestion() {
     answered = false;
     lastSelectedIndex = null;
@@ -380,6 +396,7 @@ function loadQuestion() {
         answersContainer.appendChild(button);
     });
 }
+// Sprawdza wybraną odpowiedź, blokuje przyciski i pokazuje wyjaśnienie.
 function selectAnswer(selectedIndex, selectedButton) {
     if (answered) return;
     answered = true;
@@ -406,6 +423,7 @@ function selectAnswer(selectedIndex, selectedButton) {
     nextButton.disabled = false;
     nextButton.animate([{ transform: "scale(0.96)", opacity: 0.6 }, { transform: "scale(1)", opacity: 1 }], { duration: 260, easing: "ease-out" });
 }
+// Przelicza i aktualizuje pasek postępu quizu.
 function updateProgress() {
     const progress = currentQuestions.length ? (currentIndex / currentQuestions.length) * 100 : 0;
     progressFill.style.width = `${progress}%`;
@@ -413,6 +431,7 @@ function updateProgress() {
     progressSparkle.style.left = `${progress}%`;
     progressSparkle.style.opacity = progress > 0 ? "1" : "0";
 }
+// Przechodzi do następnego pytania albo wyświetla ekran wyników.
 function nextQuestion() {
     if (!answered) return;
     if (currentIndex < currentQuestions.length - 1) {
@@ -420,6 +439,7 @@ function nextQuestion() {
         loadQuestion();
     } else showResults();
 }
+// Oblicza procent poprawnych odpowiedzi i dobiera komunikat do uzyskanego wyniku.
 function showResults() {
     showScreen(resultScreen);
     const percentage = Math.round((score / currentQuestions.length) * 100);
@@ -451,6 +471,7 @@ function showResults() {
         resultMessage.textContent = strings.resultLowMessage;
     }
 }
+// Tworzy ozdobne, unoszące się symbole w tle strony.
 function createParticles() {
     const container = document.getElementById("particles");
     const symbols = ["✦", "✧", "·", "✴"];
@@ -470,6 +491,7 @@ function createParticles() {
 const themeButtons = document.querySelectorAll("[data-theme-choice]");
 const chestScene = document.getElementById("chestScene");
 const themeStorageKey = "minecraftQuizTheme";
+// Ustawia wybrany motyw kolorystyczny i zapamiętuje go w przeglądarce.
 function applyTheme(themeName) {
     const allowedThemes = ["lavender", "cherry", "ender"];
     const theme = allowedThemes.includes(themeName) ? themeName : "lavender";
@@ -483,6 +505,7 @@ function applyTheme(themeName) {
 }
 themeButtons.forEach(button => button.addEventListener("click", () => applyTheme(button.dataset.themeChoice)));
 applyTheme((() => { try { return localStorage.getItem(themeStorageKey) || "lavender"; } catch (_) { return "lavender"; } })());
+// Włącza lub wyłącza opcje liczby pytań zależnie od wybranej kategorii.
 function updateCountAvailability() {
     const categoryOnly = selectedCategory !== "all";
     const strings = uiText[currentLanguage];
@@ -503,6 +526,7 @@ function updateCountAvailability() {
     if (countHint) countHint.textContent = categoryOnly ? strings.countHintCategory : strings.countHintAll;
     updateQuizInfo();
 }
+// Obsługa kliknięć: wybór kategorii, liczby pytań, startu, kolejnych pytań i motywu.
 document.querySelectorAll("[data-category]").forEach(button => {
     button.addEventListener("click", () => {
         selectedCategory = button.dataset.category;

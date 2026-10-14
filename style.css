@@ -1,3 +1,4 @@
+/* Zmienne CSS: kolory, czcionka i zaokrąglenia używane w całej stronie */
 :root {
     --bg: #100e1d;
     --bg-light: #19152b;
@@ -17,6 +18,7 @@
     --radius-md: 18px;
     --font: "Nunito", sans-serif;
 }
+/* Reset stylów przeglądarki – ujednolica marginesy i sposób liczenia rozmiarów */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -62,6 +64,7 @@ button:disabled {
     background: rgba(196, 167, 255, 0.4);
     color: white;
 }
+/* Dekoracyjne efekty świetlne i unoszące się drobinki w tle */
 .background-effects {
     position: fixed;
     inset: 0;
@@ -109,6 +112,7 @@ button:disabled {
     font-size: 12px;
     animation: particleRise linear infinite;
 }
+/* Górny pasek strony: logo, język i informacja o quizie */
 .topbar {
     width: min(1120px, calc(100% - 64px));
     margin: 0 auto;
@@ -169,6 +173,7 @@ button:disabled {
     font-weight: 900;
     letter-spacing: 2px;
 }
+/* Kontener główny – centruje zawartość i ogranicza jej maksymalną szerokość */
 .main-container {
     width: 100%;
     max-width: 1000px;
@@ -179,6 +184,7 @@ button:disabled {
     margin: 0 auto;
     padding: 25px 24px 55px;
 }
+/* Ekrany aplikacji są domyślnie ukryte; widoczny jest ekran z klasą .active */
 .screen {
     display: none;
     width: 100%;
@@ -187,6 +193,7 @@ button:disabled {
 .screen.active {
     display: block;
 }
+/* Style ekranu powitalnego i jego elementów */
 .welcome-content {
     display: flex;
     flex-direction: column;
@@ -434,6 +441,7 @@ button:disabled {
     align-items: center;
     gap: 12px;
 }
+/* Karty wyboru kategorii pytań */
 .category-icon {
     display: grid;
     place-items: center;
@@ -459,6 +467,7 @@ button:disabled {
     font-size: 13px;
     font-weight: 800;
 }
+/* Wygląd pytania, numeru pytania i odpowiedzi */
 .question-counter {
     display: flex;
     align-items: baseline;
@@ -477,6 +486,7 @@ button:disabled {
     color: var(--text-muted);
     font-size: 13px;
 }
+/* Pasek postępu pokazujący, jak daleko jest użytkownik w quizie */
 .progress-track {
     position: relative;
     width: 100%;
@@ -546,6 +556,7 @@ button:disabled {
     gap: 14px;
     margin-top: 29px;
 }
+/* Przyciski odpowiedzi oraz oznaczenia odpowiedzi poprawnej i błędnej */
 .answer-button {
     position: relative;
     display: flex;
@@ -635,6 +646,7 @@ button:disabled {
 .answer-button:disabled {
     cursor: default;
 }
+/* Komunikat wyświetlany po wybraniu odpowiedzi */
 .feedback-message {
     min-height: 24px;
     margin-top: 18px;
@@ -703,6 +715,7 @@ button:disabled {
 .next-button span:last-child {
     font-size: 18px;
 }
+/* Elementy ekranu końcowego i podsumowania wyniku */
 .result-content {
     position: relative;
     display: flex;
@@ -861,6 +874,7 @@ button:disabled {
 
     color: #5f5878;
 }
+/* Animacje wykorzystywane przez elementy strony */
 @keyframes screenEnter {
     from {
         opacity: 0;
@@ -941,6 +955,7 @@ button:disabled {
         transform: scale(1) rotate(0);
     }
 }
+/* Dostosowanie układu do mniejszych ekranów, np. telefonów */
 @media (max-width: 600px) {
     .topbar {
         width: calc(100% - 36px);
@@ -1262,6 +1277,7 @@ body {
 @keyframes crystalFloat { 0%,100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-11px) rotate(7deg); } }
 @keyframes chestPop { 0%,100% { transform: translateY(0) scale(1); } 45% { transform: translateY(-7px) scale(1.06); } }
 @keyframes chestSparkle { 0% { opacity: 0; transform: scale(.4) translateY(10px); } 35% { opacity: 1; } 100% { opacity: 0; transform: scale(1.5) translateY(-28px); } }
+/* Wybór motywu kolorystycznego quizu */
 .theme-picker {
     width: min(100%, 690px);
     margin: 26px 0 4px;
