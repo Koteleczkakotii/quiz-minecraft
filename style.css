@@ -1519,3 +1519,50 @@ html[data-theme="cherry"] .mode-option:hover, html[data-theme="cherry"] .mode-op
 html[data-theme="ender"] .mode-option:hover, html[data-theme="ender"] .mode-option.selected, html[data-theme="ender"] .level-card:hover:not(:disabled), html[data-theme="ender"] .level-card.selected { border-color: var(--blue); background: rgba(169,213,255,.1); }
 @media (max-width: 760px) { .level-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .level-system { padding: 17px; } }
 @media (max-width: 480px) { .mode-options { grid-template-columns: 1fr; } .level-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .level-card:last-child { grid-column: 1 / -1; } .level-progress-label { width: 100%; } .quiz-level-badge { font-size: 8px; } }
+/* Przycisk resetowania postępu */
+.reset-progress-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 12px auto 0;
+    padding: 11px 20px;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    background: var(--card);
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+.reset-progress-button:hover {
+    transform: translateY(-2px);
+    color: var(--pink);
+    border-color: var(--pink);
+    background: rgba(255, 183, 213, 0.08);
+    box-shadow: 0 0 18px rgba(255, 183, 213, 0.08);
+}
+.reset-progress-button:active {
+    transform: scale(0.97);
+}
+html[data-theme="cherry"] .reset-progress-button:hover {
+    color: var(--pink);
+    border-color: var(--pink);
+}
+html[data-theme="ender"] .reset-progress-button:hover {
+    color: var(--blue);
+    border-color: var(--blue);
+    background: rgba(169, 213, 255, 0.08);
+}
+@media (prefers-reduced-motion: reduce) {
+    .reset-progress-button {
+        transition: none;
+    }
+}

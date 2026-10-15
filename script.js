@@ -291,7 +291,7 @@ const uiText = {
         catAll: "Wszystko", catAllDesc: "Miks całego Minecrafta", catBiomes: "Biomy", catBiomesDesc: "Krainy i ich sekrety", catMobs: "Moby", catMobsDesc: "Przyjazne i groźne stworzenia",
         catResources: "Surowce", catResourcesDesc: "Rudy, minerały i bloki", catCrafting: "Crafting", catCraftingDesc: "Przedmioty i receptury", catDimensions: "Wymiary i bossowie", catDimensionsDesc: "Nether, End i wielkie walki",
         countTitle: "Ile pytań?", countHint: "Wybierz tempo swojej przygody", countAria: "Liczba pytań", countQuick: "Szybki", countClassic: "Klasyczny", countExpert: "Ekspert", questionsLabel: "pytań", gameTime: "rozgrywki", levelRange: "Łatwy–Pro", levelLabel: "poziom",
-        startQuiz: "Rozpocznij quiz", openingChest: "Otwieranie skarbu...", welcomeFooter: "STWORZONE Z ♥ DLA FANÓW MINECRAFTA", resultFactTitle: "Ciekawostka na koniec", resultFactAria: "Następna ciekawostka", factKicker: "MAGICZNA SKRZYNIA WIEDZY", factHeading: "Czy wiesz, że…?", nextFact: "Odkryj kolejną ciekawostkę",
+        startQuiz: "Rozpocznij quiz", resetProgress: "↻ Zresetuj postęp", openingChest: "Otwieranie skarbu...", welcomeFooter: "STWORZONE Z ♥ DLA FANÓW MINECRAFTA", resultFactTitle: "Ciekawostka na koniec", resultFactAria: "Następna ciekawostka", factKicker: "MAGICZNA SKRZYNIA WIEDZY", factHeading: "Czy wiesz, że…?", nextFact: "Odkryj kolejną ciekawostkę",
         categoryLabel: "KATEGORIA", questionLabel: "PYTANIE", questionHint: "Wybierz jedną poprawną odpowiedź.", yourScore: "Twój wynik:", points: "pkt", nextQuestion: "Następne pytanie", seeResult: "Zobacz wynik",
         quizCompleted: "QUIZ UKOŃCZONY", resultScore: "TWÓJ WYNIK", correctAnswers: "Poprawne odpowiedzi", tryAgain: "Zagraj ponownie", resultFooter: "KAŻDY BLOK MA SWOJĄ HISTORIĘ ♥", footerTagline: "ROZWIJAJ SWOJĄ WIEDZĘ",
         correctStart: "✦ Świetnie! ", incorrectStart: "♡ Nie tym razem! ", resultPerfectTitle: "Mistrz Minecrafta!", resultPerfectDescription: "Perfekcyjny wynik! Ten świat nie ma przed Tobą tajemnic.", resultPerfectMessage: "Wszystkie odpowiedzi poprawne. Prawdziwa legenda! ✨",
@@ -310,7 +310,7 @@ const uiText = {
         catAll: "Everything", catAllDesc: "A mix of all Minecraft", catBiomes: "Biomes", catBiomesDesc: "Landscapes and their secrets", catMobs: "Mobs", catMobsDesc: "Friendly and dangerous creatures",
         catResources: "Resources", catResourcesDesc: "Ores, minerals and blocks", catCrafting: "Crafting", catCraftingDesc: "Items and recipes", catDimensions: "Dimensions & bosses", catDimensionsDesc: "The Nether, the End and epic battles",
         countTitle: "How many questions?", countHint: "Choose the pace of your adventure", countAria: "Number of questions", countQuick: "Quick", countClassic: "Classic", countExpert: "Expert", questionsLabel: "questions", gameTime: "play time", levelRange: "Easy–Pro", levelLabel: "level",
-        startQuiz: "Start quiz", openingChest: "Opening the treasure...", welcomeFooter: "MADE WITH ♥ FOR MINECRAFT FANS", resultFactTitle: "One last Minecraft fact", resultFactAria: "Next fact", factKicker: "THE MAGICAL KNOWLEDGE CHEST", factHeading: "Did you know…?", nextFact: "Discover another fact",
+        startQuiz: "Start quiz", resetProgress: "↻ Reset progress", openingChest: "Opening the treasure...", welcomeFooter: "MADE WITH ♥ FOR MINECRAFT FANS", resultFactTitle: "One last Minecraft fact", resultFactAria: "Next fact", factKicker: "THE MAGICAL KNOWLEDGE CHEST", factHeading: "Did you know…?", nextFact: "Discover another fact",
         categoryLabel: "CATEGORY", questionLabel: "QUESTION", questionHint: "Choose one correct answer.", yourScore: "Your score:", points: "pts", nextQuestion: "Next question", seeResult: "See results",
         quizCompleted: "QUIZ COMPLETED", resultScore: "YOUR SCORE", correctAnswers: "Correct answers", tryAgain: "Play again", resultFooter: "EVERY BLOCK HAS A STORY ♥", footerTagline: "BUILD YOUR KNOWLEDGE",
         correctStart: "✦ Great job! ", incorrectStart: "♡ Not this time! ", resultPerfectTitle: "Minecraft Master!", resultPerfectDescription: "A perfect score! This world holds no secrets from you.", resultPerfectMessage: "Every answer is correct. A true legend! ✨",
@@ -747,7 +747,36 @@ startButton.addEventListener("click", () => {
     }, 650);
 });
 nextButton.addEventListener("click", nextQuestion);
-restartButton.addEventListener("click", () => { updateLevelCards(); showScreen(welcomeScreen); });
+restartButton.addEventListener("click", () => { updateLevelCards(); showScreen(welcomeScreen); }); 
+// Resetuje postęp poziomów po potwierdzeniu przez gracza.
+const resetProgressButton = document.getElementById("resetProgressButton");
+resetProgressButton.addEventListener("click", () => {
+    const confirmationMessage = currentLanguage === "pl"
+        ? "Czy na pewno chcesz zresetować cały postęp? Utracisz odblokowane poziomy, XP i zapisane najlepsze wyniki."
+        : "Are you sure you want to reset all progress? You will lose unlocked levels, XP and saved best scores.";
+    if (!window.confirm(confirmationMessage)) {
+        return;
+    }
+    highestUnlockedLevel = 1;
+    completedLevels = [];
+    totalXP = 0;
+    bestLevelScores = {};
+    selectedLevel = 1;
+    levelResultKind = "";
+    levelResultTarget = 0;
+    resultsRecordedForCurrentRun = false;
+    try {
+        localStorage.removeItem(progressionStorageKey);
+    } catch (_) {
+    }
+    updateLevelCards();
+    updateQuizInfo();
+    window.alert(
+        currentLanguage === "pl"
+            ? "✨ Gotowe! Twój postęp został zresetowany."
+            : "✨ Done! Your progress has been reset."
+    );
+});
 languageButtons.forEach(button => button.addEventListener("click", () => applyLanguage(button.dataset.language)));
 nextFactButton.addEventListener("click", () => renderFact());
 nextResultFactButton.addEventListener("click", () => renderFact());
