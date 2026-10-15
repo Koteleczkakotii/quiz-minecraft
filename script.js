@@ -124,6 +124,81 @@ const englishQuestionBank = {
         ["Which dimension is home to ghasts and Nether fortresses?", ["Overworld", "Nether", "The End", "The End dimension"], "Ghasts and Nether fortresses are found in the Nether."],
     ]
 };
+
+// Rozszerzona baza wskazówek — dzięki niej każda kategoria ma 30 pytań bazowych.
+const dodatkoweWskazowki = {"biomes":[["Windswept Forest","Las wietrzny","Górski, nierówny las z dębami i świerkami na stromym terenie.","A hilly forest of oak and spruce trees on steep terrain."],["Basalt Deltas","Bazaltowe delty","Biom Netheru pełen bazaltowych kolumn i cząsteczek popiołu.","A Nether biome filled with basalt columns and ash particles."],["Warped Forest","Spaczony las","Niebieskozielony biom Netheru z grzybami i endermanami.","A teal Nether biome with fungi and endermen."],["Crimson Forest","Karmazynowy las","Czerwony biom Netheru z karmazynowymi grzybami i hoglinami.","A red Nether biome with crimson fungi and hoglins."],["Soul Sand Valley","Dolina piasku dusz","Biom Netheru z piaskiem dusz, bazaltem i dużą liczbą skamieniałości.","A Nether biome with soul sand, basalt, and many fossils."],["Meadow","Łąka","Wysoko położony, trawiasty biom z kwiatami i często pasącymi się zwierzętami.","A high-altitude grassy biome with flowers and often grazing animals."],["Głęboka ciemność","Deep Dark","Podziemny biom, w którym można znaleźć bloki sculk i starożytne miasta.","An underground biome with sculk blocks and Ancient Cities."],["Jaskinie naciekowe","Dripstone Caves","Jaskinie z naciekami, z których mogą powstawać stalaktyty i stalagmity.","Caves with dripstone that forms stalactites and stalagmites."],["Bujne jaskinie","Lush Caves","Podziemny biom z mchem, azaliami i świecącymi jagodami.","An underground biome with moss, azalea, and glow berries."],["Zaśnieżone równiny","Snowy Plains","Płaski, zimny biom pokryty śniegiem.","A flat, cold biome covered in snow."],["Lodowe kolce","Ice Spikes","Rzadki zimny biom z wysokimi kolumnami lodu.","A rare cold biome with tall pillars of ice."],["Sawanna","Savanna","Ciepły, suchy biom z akacjami i wysoką trawą.","A warm, dry biome with acacia trees and tall grass."],["Równiny","Plains","Otwarty biom, na którym często buduje się pierwsze schronienie.","An open biome where players often build their first shelter."],["Plaża","Beach","Biom przy brzegu, często z piaskiem i żwirem.","A shoreline biome often made of sand and gravel."],["Zamarznięty ocean","Frozen Ocean","Ocean w zimnym klimacie, na którym może pojawiać się lód.","An ocean in a cold climate where ice can form."],["Ciepły ocean","Warm Ocean","Oceaniczny biom, w którym można znaleźć rafy koralowe.","An ocean biome where coral reefs can be found."],["Rzeka","River","Wąski biom wodny, który przecina ląd.","A narrow water biome that cuts through land."],["Las brzozowy","Birch Forest","Las, w którym dominują jasne pnie brzóz.","A forest dominated by pale birch trunks."],["Sunflower Plains","Równiny słonecznikowe","Wariant równin wyróżniający się dużą liczbą słoneczników.","A plains variant distinguished by many sunflowers."],["Las kwiatowy","Flower Forest","Las z dużą liczbą różnych kwiatów.","A forest containing many different kinds of flowers."]],"mobs":[["Ravager","Niszczyciel","Duży wrogi mob pojawiający się podczas najazdów na wioski.","A large hostile mob that appears during village raids."],["Evoker","Przywoływacz","Mob najazdu, który przywołuje magiczne kły i Vexy.","A raid mob that summons fangs and Vexes."],["Vindicator","Obrońca","Wrogi illager walczący w zwarciu z żelaznym toporem.","A hostile illager that fights in melee with an iron axe."],["Pillager","Rozbójnik","Illager używający kuszy i pojawiający się w najazdach lub posterunkach.","An illager that uses a crossbow and appears in raids or outposts."],["Sniffer","Węszyciel","Starożytny mob, który wykopuje z ziemi nasiona pradawnych roślin.","An ancient mob that digs up seeds of ancient plants."],["Breeze","Bryza","Wrogi mob z komnat prób, który atakuje pociskami wiatru.","A hostile Trial Chambers mob that attacks with wind charges."],["Blaze","Blaze","Występuje w fortecach Netheru i upuszcza płomienne różdżki.","Appears in Nether Fortresses and drops blaze rods."],["Shulker","Shulker","Chroni się w skorupie i wystrzeliwuje pociski lewitacji.","Hides in a shell and fires levitation projectiles."],["Piglin","Piglin","Może wymieniać przedmioty na złoto, jeśli gracz oferuje sztabki.","Can barter when a player offers gold ingots."],["Hoglin","Hoglin","Duży, agresywny mob z Netheru, który może upuszczać wieprzowinę.","A large hostile Nether mob that can drop porkchops."],["Strider","Strider","Może chodzić po lawie i da się na nim jeździć.","Can walk on lava and be ridden."],["Żółw","Turtle","Składa jaja na piasku i może upuszczać skorupki po dorastaniu.","Lays eggs on sand and can drop scutes as it grows."],["Pszczoła","Bee","Zbiera pyłek z kwiatów i może pomagać w zapylaniu upraw.","Collects pollen from flowers and can help pollinate crops."],["Delfin","Dolphin","Może dać graczowi efekt zwiększający szybkość pływania.","Can give a player an effect that increases swimming speed."],["Lis","Fox","Może trzymać przedmiot w pysku i bywa aktywny nocą.","Can hold an item in its mouth and is often active at night."],["Koza","Goat","Może taranować i czasem upuszcza róg po uderzeniu w twardą przeszkodę.","Can ram and may drop a horn after hitting a hard obstacle."],["Axolotl","Axolotl","Wodny mob, który pomaga walczyć z niektórymi podwodnymi wrogami.","An aquatic mob that helps fight some underwater enemies."],["Żelazny golem","Iron Golem","Chroni mieszkańców wioski i atakuje wrogie moby.","Protects villagers and attacks hostile mobs."],["Wieśniak","Villager","Handluje z graczem, a profesja zależy między innymi od stanowiska pracy.","Trades with players, and its profession depends partly on its workstation."],["Szkielet","Skeleton","Atakuje z dystansu, strzelając z łuku.","Attacks from a distance with a bow."]],"resources":[["Slimeball","Kula szlamu","Przedmiot upuszczany przez szlamy, używany między innymi do lepkich tłoków.","An item dropped by slimes and used for sticky pistons."],["Honeycomb","Plaster miodu","Można go zebrać z pełnego gniazda lub ula za pomocą nożyc.","Can be collected from a full bee nest or beehive using shears."],["Phantom Membrane","Błona fantoma","Przedmiot upuszczany przez fantomy, używany do naprawiania elytr przy kowadle.","An item dropped by phantoms and used to repair elytra on an anvil."],["Kwarc netherowy","Nether Quartz","Można go wydobywać z rudy kwarcu w Netherze.","Can be mined from Nether quartz ore in the Nether."],["Nautilus Shell","Muszla łodzika","Jest jednym ze składników potrzebnych do stworzenia przewodnika.","One of the ingredients needed to craft a conduit."],["Heart of the Sea","Serce oceanu","Rzadki skarb ze skrzyń zakopanych skarbów, potrzebny do przewodnika.","A rare buried-treasure item required to craft a conduit."],["Echo Shard","Odłamek echa","Można go znaleźć w skrzyniach starożytnych miast i użyć do kompasu odzyskiwania.","Found in Ancient City chests and used to craft a recovery compass."],["Disc Fragment","Fragment płyty","Fragment znajdowany w starożytnych miastach; dziewięć tworzy płytę muzyczną 5.","A fragment found in Ancient Cities; nine craft the Music Disc 5."],["Złoto","Gold Ingot","Pigliny reagują na złoto i mogą wymieniać je na przedmioty.","Piglins react to gold and can barter for items."],["Rabbit Hide","Skóra królika","Cztery sztuki można połączyć w skórę.","Four pieces can be crafted into leather."],["Magma Cream","Krem magmowy","Jest składnikiem mikstur odporności na ogień.","An ingredient for potions of Fire Resistance."],["Glowstone Dust","Jasnopył","Wzmacnia poziom mikstur, gdy zostanie dodany podczas warzenia.","Increases potion strength when added during brewing."],["Szmaragdowy blok","Block of Emerald","Można go stworzyć z dziewięciu szmaragdów.","Can be crafted from nine emeralds."],["Pręt Blaze’a","Blaze Rod","Po przetworzeniu może dać proszek Blaze’a używany do warzenia.","Can be crafted into blaze powder used in brewing."],["Perła Endu","Ender Pearl","Rzucenie nią teleportuje gracza w miejsce jej lądowania.","Throwing it teleports the player to where it lands."],["Łza Ghasta","Ghast Tear","Jest składnikiem mikstury regeneracji.","Is an ingredient for a potion of regeneration."],["Proch","Gunpowder","Jest składnikiem między innymi TNT i rakiet fajerwerkowych.","Is used to craft TNT and firework rockets, among other things."],["Skóra","Leather","Można ją uzyskać między innymi od krów i wykorzystać do książek.","Can be obtained from cows and used to craft books."],["Prismaryn","Prismarine","Jest związany z monumentami oceanicznymi.","Is associated with Ocean Monuments."],["Blok mchu","Moss Block","Może rozprzestrzeniać się na pobliskie bloki przy użyciu mączki kostnej.","Can spread to nearby blocks when bone meal is used."]],"crafting":[["Bow","Łuk","Wytwarza się go z patyków i nici, a służy do strzelania strzałami.","Crafted from sticks and string and used to shoot arrows."],["Blast Furnace","Piec hutniczy","Przetapia rudy i metalowe przedmioty szybciej niż zwykły piec.","Smelts ores and metal items faster than a regular furnace."],["Smoker","Wędzarka","Gotuje jedzenie szybciej niż zwykły piec.","Cooks food faster than a regular furnace."],["Mapa","Map","Może pokazywać obszar świata po jej utworzeniu i użyciu.","Can show an area of the world when created and used."],["Campfire","Ognisko","Można na nim piec jedzenie bez paliwa, choć trwa to dłużej.","Can cook food without fuel, though it takes longer."],["Lectern","Pulpit","Jest stanowiskiem pracy bibliotekarza i może przechowywać otwartą książkę do odczytu.","A librarian workstation that can display an open book for reading."],["Lej","Hopper","Przenosi przedmioty między pojemnikami i innymi blokami.","Moves items between containers and other blocks."],["Komparator redstone","Redstone Comparator","Może odczytywać zawartość pojemników i porównywać sygnały.","Can read container fullness and compare signals."],["Powtarzacz redstone","Redstone Repeater","Opóźnia sygnał i pozwala go odświeżać w obwodzie.","Delays a signal and can refresh it in a circuit."],["Tarcza","Shield","Wytwarza się ją z desek i sztabki żelaza.","Crafted from planks and an iron ingot."],["Wędka","Fishing Rod","Powstaje z patyków i nici.","Crafted from sticks and string."],["Nożyce","Shears","Pozwalają między innymi ścinać wełnę z owiec.","Can be used to shear wool from sheep."],["Wiadro","Bucket","Wytwarza się je z trzech sztabek żelaza.","Crafted from three iron ingots."],["Dozownik","Dispenser","Wystrzeliwuje lub używa przedmiotów po otrzymaniu sygnału redstone.","Dispenses or uses items when it receives a redstone signal."],["Stonecutter","Kamieniarz","Pozwala tworzyć wiele kamiennych wariantów bloków z mniejszą liczbą składników.","Lets players craft many stone block variants with fewer ingredients."],["Krosno","Loom","Pozwala tworzyć wzory na sztandarach.","Used to apply patterns to banners."],["Kamień szlifierski","Grindstone","Pozwala usuwać większość zaklęć i naprawiać niektóre przedmioty.","Can remove most enchantments and repair some items."],["Kompostownik","Composter","Może zamieniać roślinne przedmioty w mączkę kostną.","Can turn plant-based items into bone meal."],["Stół łuczarza","Fletching Table","Jest stanowiskiem pracy łuczarza, ale nie ma standardowej funkcji craftingu dla gracza.","Is a fletcher workstation but has no standard player crafting function."],["Czujnik sculkowy z kalibracją","Calibrated Sculk Sensor","To blok redstone reagujący na określone częstotliwości drgań.","A redstone block that responds to specific vibration frequencies."]],"dimensions":[["Pustynna studnia","Desert Well","Niewielka konstrukcja z piaskowca występująca na pustyni.","A small sandstone structure found in deserts."],["Bastion","Bastion Remnant","Ruiny w Netherze, w których można spotkać pigliny i znaleźć skrzynie.","Nether ruins where piglins can be found and chests may appear."],["Starożytne miasto","Ancient City","Podziemna struktura w biomie Deep Dark, w której trzeba uważać na Wardena.","An underground structure in the Deep Dark where players must beware of the Warden."],["Leśna posiadłość","Woodland Mansion","Duża struktura w mrocznym lesie, w której występują przywoływacze i obrońcy.","A large Dark Forest structure containing evokers and vindicators."],["Pomnik oceaniczny","Ocean Monument","Podwodna struktura strzeżona przez strażników i starszych strażników.","An underwater structure guarded by guardians and elder guardians."],["Wrak statku","Shipwreck","Struktura na lądzie lub pod wodą, w której można znaleźć skrzynie z łupem.","A structure on land or underwater that may contain loot chests."],["Ruiny szlaku","Trail Ruins","Zakopana struktura związana z archeologią i podejrzanym żwirem.","A buried structure associated with archaeology and suspicious gravel."],["Ruiny oceanu","Ocean Ruins","Podwodne pozostałości, w których można znaleźć podejrzany żwir lub piasek.","Underwater ruins where suspicious gravel or sand may be found."],["Komnata prób","Trial Chambers","Podziemna struktura z generatorami prób i wyzwaniami bojowymi.","An underground structure with trial spawners and combat challenges."],["Nether Fossil","Skamieniałość Netheru","Struktura z bloków kości występująca w Dolinie piasku dusz.","A bone-block structure found in the Soul Sand Valley."],["Statek Endu","End Ship","Można w nim znaleźć elytry.","Can contain elytra."],["Buried Treasure","Zakopany skarb","Skrzynia ukryta pod ziemią lub piaskiem, odnajdywana dzięki mapie skarbów.","A chest hidden underground or under sand, found using a treasure map."],["Jungle Temple","Świątynia dżungli","Kamienna struktura z pułapkami i ukrytymi skrzyniami.","A stone structure with traps and hidden chests."],["Pillager Outpost","Posterunek rozbójników","Wieża, w pobliżu której mogą pojawiać się rozbójnicy.","A tower near which pillagers can spawn."],["Opuszczona kopalnia","Mineshaft","Podziemna struktura z torami, podporami i skrzyniami.","An underground structure with rails, supports, and chests."],["Bramy Endu","End Gateway","Portale pojawiające się po pokonaniu smoka, prowadzące na dalsze wyspy Endu.","Portals that appear after defeating the dragon and lead to outer End islands."],["Wioska","Village","Osada z domami i mieszkańcami, którzy mogą handlować z graczem.","A settlement with houses and villagers who can trade with players."],["Ruiny portalu","Ruined Portal","Uszkodzona konstrukcja portalu, która może wystąpić w różnych biomach.","A damaged portal structure that can appear in various biomes."],["Igloo","Igloo","Może zawierać ukrytą piwnicę z mieszkańcami i stanowiskiem alchemicznym.","May contain a hidden basement with villagers and a brewing stand."],["Piramida pustynna","Desert Pyramid","Ma ukrytą komorę z pułapką pod wzorzystą podłogą.","Has a hidden chamber with a trap beneath its patterned floor."]]};
+const nazwyKategorii = {
+    biomes: { pl: "biom", en: "biome" },
+    mobs: { pl: "mob", en: "mob" },
+    resources: { pl: "surowiec lub przedmiot", en: "resource or item" },
+    crafting: { pl: "przedmiot lub blok", en: "item or block" },
+    dimensions: { pl: "struktura lub element", en: "structure or feature" }
+};
+Object.keys(dodatkoweWskazowki).forEach(kategoria => {
+    const wpisy = dodatkoweWskazowki[kategoria];
+    wpisy.forEach((wpis, indeks) => {
+        const [nazwaPL, nazwaEN, wskazowkaPL, wskazowkaEN] = wpis;
+        const pulaBlednych = wpisy.filter((_, i) => i !== indeks);
+        const bledne = [pulaBlednych[(indeks + 2) % pulaBlednych.length], pulaBlednych[(indeks + 7) % pulaBlednych.length], pulaBlednych[(indeks + 13) % pulaBlednych.length]];
+        const odpowiedziPL = [nazwaPL, ...bledne.map(element => element[0])];
+        const odpowiedziEN = [nazwaEN, ...bledne.map(element => element[1])];
+        const poprawnyIndeks = indeks % 4;
+        const pozycjePL = [...odpowiedziPL];
+        const pozycjeEN = [...odpowiedziEN];
+        const prawidlowaPL = pozycjePL.shift();
+        const prawidlowaEN = pozycjeEN.shift();
+        pozycjePL.splice(poprawnyIndeks, 0, prawidlowaPL);
+        pozycjeEN.splice(poprawnyIndeks, 0, prawidlowaEN);
+        questionBank[kategoria].push([`Który ${nazwyKategorii[kategoria].pl} pasuje do opisu: ${wskazowkaPL}`, pozycjePL, poprawnyIndeks, wskazowkaPL]);
+        englishQuestionBank[kategoria].push([`Which ${nazwyKategorii[kategoria].en} matches this description: ${wskazowkaEN}`, pozycjeEN, wskazowkaEN]);
+    });
+});
+// Angielskie wersje do pytań i ich poziom bazowy.
+Object.keys(questionBank).forEach(kategoria => {
+    questionBank[kategoria].forEach((pytanie, indeks) => {
+        const wersjaEN = englishQuestionBank[kategoria][indeks];
+        pytanie.en = { question: wersjaEN[0], answers: wersjaEN[1], explanation: wersjaEN[2] };
+    });
+});
+// Pięć pul trudności. Każda kategoria zawiera po 30 pytań na każdym poziomie.
+const questionBankByLevel = {};
+// Usuwamy z podpowiedzi nazwę poprawnej odpowiedzi, aby wyższe poziomy wymagały rozpoznania faktu.
+function removeAnswerFromClue(clue, answer) {
+    if (!answer) return clue;
+    const escaped = answer.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    return clue.replace(new RegExp(escaped, "ig"), "ten element").replace(/\s{2,}/g, " ").trim();
+}
+Object.keys(questionBank).forEach(kategoria => {
+    questionBankByLevel[kategoria] = [];
+    for (let poziom = 1; poziom <= 5; poziom++) {
+        const pula = questionBank[kategoria].map((pytanie, indeks) => {
+            const kopia = [pytanie[0], [...pytanie[1]], pytanie[2], pytanie[3]];
+            kopia.level = poziom;
+            kopia.seedIndex = indeks;
+            const poprawnaPL = pytanie[1][pytanie[2]];
+            const poprawnaEN = pytanie.en.answers[pytanie[2]];
+            const wskazowkaPL = removeAnswerFromClue(pytanie[3], poprawnaPL);
+            const wskazowkaEN = removeAnswerFromClue(pytanie.en.explanation, poprawnaEN);
+            if (poziom === 1) {
+                kopia.en = { question: pytanie.en.question, answers: [...pytanie.en.answers], explanation: pytanie.en.explanation };
+            } else if (poziom === 2) {
+                kopia[0] = `Który element pasuje do wskazówki: ${wskazowkaPL}?`;
+                kopia.en = { question: `Which element matches this clue: ${wskazowkaEN}?`, answers: [...pytanie.en.answers], explanation: pytanie.en.explanation };
+            } else if (poziom === 3) {
+                kopia[0] = `Rozpoznaj mechanikę gry na podstawie opisu: ${wskazowkaPL}. Która odpowiedź pasuje?`;
+                kopia.en = { question: `Identify the game mechanic from this description: ${wskazowkaEN}. Which answer fits?`, answers: [...pytanie.en.answers], explanation: pytanie.en.explanation };
+            } else if (poziom === 4) {
+                kopia[0] = `Podczas rozgrywki zauważasz: „${wskazowkaPL}”. Który element najlepiej wyjaśnia tę sytuację?`;
+                kopia.en = { question: `During gameplay, you notice: “${wskazowkaEN}”. Which element best explains this situation?`, answers: [...pytanie.en.answers], explanation: pytanie.en.explanation };
+            } else {
+                kopia[0] = `Wyzwanie eksperckie: przeanalizuj wskazówkę „${wskazowkaPL}” i wskaż element bezpośrednio związany z tą mechaniką.`;
+                kopia.en = { question: `Expert challenge: analyze the clue “${wskazowkaEN}” and identify the element directly connected to this mechanic.`, answers: [...pytanie.en.answers], explanation: pytanie.en.explanation };
+            }
+            return kopia;
+        });
+        questionBankByLevel[kategoria][poziom] = pula;
+    }
+});
 // Nazwy i ikony kategorii wyświetlane w interfejsie.
 const categoryInfo = {
     all: { pl: "Wszystko", en: "Everything", icon: "🌎" },
@@ -163,6 +238,31 @@ const categoryTitle = document.querySelector(".quiz-category strong");
 const categoryIcon = document.querySelector(".quiz-category .category-icon");
 const selectedQuestionCount = document.getElementById("selectedQuestionCount");
 const languageButtons = document.querySelectorAll("[data-language]");
+// Elementy interfejsu odpowiedzialne za wybór trybu, poziomu i wyświetlanie postępu.
+const modeButtons = document.querySelectorAll("[data-game-mode]");
+const levelButtons = document.querySelectorAll("[data-level]");
+const levelProgressValue = document.getElementById("levelProgressValue");
+const xpValue = document.getElementById("xpValue");
+const quizLevelBadge = document.getElementById("quizLevelBadge");
+const levelResultMessage = document.getElementById("levelResultMessage");
+const progressionStorageKey = "minecraftQuizProgressV1";
+let selectedMode = "free";
+let selectedLevel = 1;
+let highestUnlockedLevel = 1;
+let completedLevels = [];
+let totalXP = 0;
+let bestLevelScores = {};
+let resultsRecordedForCurrentRun = false;
+let levelResultKind = "";
+let levelResultTarget = 0;
+// Odczytujemy zapis kampanii, ale błędne lub niepełne dane zastępujemy bezpiecznymi wartościami.
+try {
+    const zapisPostepu = JSON.parse(localStorage.getItem(progressionStorageKey) || "{}");
+    highestUnlockedLevel = Math.min(5, Math.max(1, Number(zapisPostepu.highestUnlockedLevel) || 1));
+    completedLevels = Array.isArray(zapisPostepu.completedLevels) ? zapisPostepu.completedLevels.filter(n => Number.isInteger(n) && n >= 1 && n <= 5) : [];
+    totalXP = Math.max(0, Number(zapisPostepu.totalXP) || 0);
+    bestLevelScores = zapisPostepu.bestLevelScores && typeof zapisPostepu.bestLevelScores === "object" ? zapisPostepu.bestLevelScores : {};
+} catch (_) { /* Przy braku dostępu do pamięci przeglądarki quiz nadal działa. */ }
 const estimatedTime = document.getElementById("estimatedTime");
 const startButtonLabel = document.getElementById("startButtonLabel");
 const factText = document.getElementById("factText");
@@ -181,12 +281,7 @@ let currentIndex = 0;
 let score = 0;
 let answered = false;
 let lastSelectedIndex = null;
-Object.keys(questionBank).forEach(category => {
-    questionBank[category].forEach((question, index) => {
-        const englishQuestion = englishQuestionBank[category][index];
-        question.en = { question: englishQuestion[0], answers: englishQuestion[1], explanation: englishQuestion[2] };
-    });
-});
+
 // Teksty interfejsu w języku polskim i angielskim.
 const uiText = {
     pl: {
@@ -205,7 +300,8 @@ const uiText = {
         result40Title: "Odkrywaj dalej!", result40Description: "Każdy blok to nowa okazja do nauki.", result40Message: "Spróbuj ponownie i zobacz, ile punktów zdobędziesz! ✨",
         resultLowTitle: "Nowa przygoda!", resultLowDescription: "Każdy ekspert kiedyś zaczynał.", resultLowMessage: "Nie poddawaj się — kolejna próba może być znacznie lepsza! 💗",
         countHintCategory: "Ta kategoria ma 10 unikalnych pytań", countHintAll: "Wybierz tempo swojej przygody · do 50 pytań", countDisabledTitle: "Ta kategoria ma obecnie 10 unikalnych pytań. Wybierz „Wszystko”, aby zagrać dłuższy quiz.",
-        timeMinutes: n => `~${Math.max(1, Math.ceil(n * 0.3))} min`, homeAria: "Minecraft Quiz — strona główna", metaDescription: "Minecraft Quiz — sprawdź swoją wiedzę o świecie Minecraft!"
+        timeMinutes: n => `~${Math.max(1, Math.ceil(n * 0.3))} min`, homeAria: "Minecraft Quiz — strona główna", metaDescription: "Minecraft Quiz — sprawdź swoją wiedzę o świecie Minecraft!",
+        modeTitle: "WYBIERZ TRYB GRY", modeFree: "Tryb swobodny", modeFreeDesc: "Wybierz dowolny poziom", modeCampaign: "Kampania poziomów", modeCampaignDesc: "Odblokowuj kolejne wyzwania", levelTitle: "WYBIERZ POZIOM", levelProgress: "Twój postęp", levelUnlocked: "Odblokowany", levelLocked: "Zablokowany", levelCompleted: "Ukończony", levelNames: ["Początkujący", "Odkrywca", "Zaawansowany", "Ekspert", "Arcymistrz"], levelDescriptions: ["Podstawy świata", "Więcej mechanik", "Wiedza zaawansowana", "Trudniejsze szczegóły", "Największe wyzwanie"], levelBadge: n => `POZIOM ${n}`, unlockSuccess: n => `🏆 Odblokowano poziom ${n}! Zdobywasz nowe wyzwanie.`, unlockNeed: n => `Potrzebujesz co najmniej 80%, aby odblokować poziom ${n}. Spróbuj ponownie!`, campaignComplete: "👑 Ukończono wszystkie poziomy! Jesteś legendą Minecrafta.", xpLabel: "XP", countHintCategory: "Każda kategoria ma 30 pytań na poziom", countHintAll: "Wybierz tempo swojej przygody", countDisabledTitle: "Dostępnych jest do 30 pytań na wybranym poziomie."
     },
     en: {
         languageAria: "Choose language", progressAria: "Quiz progress", status: "QUIZ TIME", eyebrow: "A MAGICAL MINECRAFT ADVENTURE", welcomeDescription: "Test how well you know your world!",
@@ -223,7 +319,8 @@ const uiText = {
         result40Title: "Keep exploring!", result40Description: "Every block is another chance to learn.", result40Message: "Try again and see how many points you can earn! ✨",
         resultLowTitle: "A new adventure!", resultLowDescription: "Every expert started somewhere.", resultLowMessage: "Don't give up — your next attempt could be much better! 💗",
         countHintCategory: "This category has 10 unique questions", countHintAll: "Choose your pace · up to 50 questions", countDisabledTitle: "This category currently has 10 unique questions. Choose “Everything” to play a longer quiz.",
-        timeMinutes: n => `~${Math.max(1, Math.ceil(n * 0.3))} min`, homeAria: "Minecraft Quiz — home", metaDescription: "Minecraft Quiz — test your knowledge of the Minecraft world!"
+        timeMinutes: n => `~${Math.max(1, Math.ceil(n * 0.3))} min`, homeAria: "Minecraft Quiz — home", metaDescription: "Minecraft Quiz — test your knowledge of the Minecraft world!",
+        modeTitle: "CHOOSE GAME MODE", modeFree: "Free play", modeFreeDesc: "Choose any level", modeCampaign: "Level campaign", modeCampaignDesc: "Unlock new challenges", levelTitle: "CHOOSE A LEVEL", levelProgress: "Your progress", levelUnlocked: "Unlocked", levelLocked: "Locked", levelCompleted: "Completed", levelNames: ["Beginner", "Explorer", "Advanced", "Expert", "Grandmaster"], levelDescriptions: ["World basics", "More mechanics", "Advanced knowledge", "Trickier details", "The ultimate challenge"], levelBadge: n => `LEVEL ${n}`, unlockSuccess: n => `🏆 Level ${n} unlocked! A new challenge awaits.`, unlockNeed: n => `You need at least 80% to unlock level ${n}. Try again!`, campaignComplete: "👑 All levels completed! You are a Minecraft legend.", xpLabel: "XP", countHintCategory: "Each category has 30 questions per level", countHintAll: "Choose the pace of your adventure", countDisabledTitle: "Up to 30 questions are available for the selected level."
     }
 };
 // Ciekawostki o Minecraftcie pokazywane na ekranie powitalnym i wyników.
@@ -280,6 +377,7 @@ function applyLanguage(language, rerender = true) {
     try { localStorage.setItem(languageStorageKey, currentLanguage); } catch (_) {}
     updateCountAvailability();
     updateQuizInfo();
+    updateLevelCards();
     renderFact(currentFactIndex < 0 ? undefined : currentFactIndex);
     if (rerender && currentQuestions.length && quizScreen.classList.contains("active")) {
         const wasAnswered = answered;
@@ -288,6 +386,7 @@ function applyLanguage(language, rerender = true) {
         if (wasAnswered && previousSelection !== null) restoreAnswerState(previousSelection);
     }
     if (resultScreen.classList.contains("active") && rerender) showResults();
+    renderLevelResultMessage();
     updateResultFact();
     if (!startButton.disabled) startButtonLabel.textContent = strings.startQuiz;
 }
@@ -345,9 +444,9 @@ function shuffle(items) {
 }
 // Zwraca pytania z wybranej kategorii albo ze wszystkich kategorii.
 function getQuestionPool() {
-    return selectedCategory === "all"
-        ? Object.values(questionBank).flat()
-        : questionBank[selectedCategory];
+    // W kampanii i trybie swobodnym losujemy pytania tylko z wybranego poziomu.
+    const kategorie = selectedCategory === "all" ? Object.keys(questionBankByLevel) : [selectedCategory];
+    return kategorie.flatMap(kategoria => questionBankByLevel[kategoria][selectedLevel] || []);
 }
 // Ukrywa pozostałe ekrany i pokazuje wskazany ekran aplikacji.
 function showScreen(screenToShow) {
@@ -362,10 +461,15 @@ function startQuiz() {
     currentIndex = 0;
     score = 0;
     answered = false;
+    resultsRecordedForCurrentRun = false;
+    levelResultKind = "";
+    levelResultTarget = 0;
+    if (levelResultMessage) levelResultMessage.textContent = "";
     scoreDisplay.textContent = score;
     totalQuestionsElement.textContent = currentQuestions.length.toString().padStart(2, "0");
     categoryTitle.textContent = categoryInfo[selectedCategory][currentLanguage];
     categoryIcon.textContent = categoryInfo[selectedCategory].icon;
+    if (quizLevelBadge) quizLevelBadge.textContent = `${uiText[currentLanguage].levelBadge(selectedLevel)} · ${uiText[currentLanguage].levelNames[selectedLevel - 1]}`;
     showScreen(quizScreen);
     loadQuestion();
 }
@@ -449,6 +553,41 @@ function showResults() {
     resultProgressFill.style.width = "0%";
     requestAnimationFrame(() => requestAnimationFrame(() => { resultProgressFill.style.width = `${percentage}%`; }));
     const strings = uiText[currentLanguage];
+    if (!resultsRecordedForCurrentRun) {
+        resultsRecordedForCurrentRun = true;
+        // XP naliczamy raz za ukończoną rundę; ponowne renderowanie języka nie duplikuje punktów.
+        totalXP += score * 10;
+        bestLevelScores[String(selectedLevel)] = Math.max(Number(bestLevelScores[String(selectedLevel)] || 0), percentage);
+        let komunikatPostepu = "";
+        levelResultKind = "";
+        levelResultTarget = 0;
+        if (selectedMode === "campaign") {
+            if (percentage >= 80) {
+                if (!completedLevels.includes(selectedLevel)) completedLevels.push(selectedLevel);
+                if (selectedLevel < 5 && highestUnlockedLevel < selectedLevel + 1) {
+                    highestUnlockedLevel = selectedLevel + 1;
+                    totalXP += 50;
+                    levelResultKind = "success";
+                    levelResultTarget = highestUnlockedLevel;
+                    komunikatPostepu = strings.unlockSuccess(highestUnlockedLevel);
+                } else if (selectedLevel === 5) {
+                    levelResultKind = "complete";
+                    komunikatPostepu = strings.campaignComplete;
+                } else {
+                    levelResultKind = "completed";
+                    komunikatPostepu = strings.levelCompleted;
+                }
+            } else if (selectedLevel < 5) {
+                levelResultKind = "need";
+                levelResultTarget = selectedLevel + 1;
+                komunikatPostepu = strings.unlockNeed(selectedLevel + 1);
+            }
+        }
+        if (levelResultMessage) levelResultMessage.textContent = komunikatPostepu;
+        // Zapisujemy odblokowane poziomy, najlepsze wyniki i sumę doświadczenia.
+        try { localStorage.setItem(progressionStorageKey, JSON.stringify({ highestUnlockedLevel, completedLevels, totalXP, bestLevelScores })); } catch (_) {}
+        updateLevelCards();
+    }
     if (percentage === 100) {
         resultBadge.textContent = "👑"; resultTitle.textContent = strings.resultPerfectTitle;
         resultDescription.textContent = strings.resultPerfectDescription;
@@ -507,25 +646,69 @@ themeButtons.forEach(button => button.addEventListener("click", () => applyTheme
 applyTheme((() => { try { return localStorage.getItem(themeStorageKey) || "lavender"; } catch (_) { return "lavender"; } })());
 // Włącza lub wyłącza opcje liczby pytań zależnie od wybranej kategorii.
 function updateCountAvailability() {
-    const categoryOnly = selectedCategory !== "all";
+    // Każda kategoria ma 30 pytań na poziom, więc wszystkie długości quizu są dostępne.
     const strings = uiText[currentLanguage];
     document.querySelectorAll("[data-count]").forEach(option => {
-        const unavailable = categoryOnly && Number(option.dataset.count) > 10;
-        option.disabled = unavailable;
-        option.title = unavailable ? strings.countDisabledTitle : "";
+        option.disabled = false;
+        option.title = "";
     });
-    if (categoryOnly && selectedCount > 10) {
-        selectedCount = 10;
-        document.querySelectorAll("[data-count]").forEach(option => {
-            const selected = Number(option.dataset.count) === selectedCount;
-            option.classList.toggle("selected", selected);
-            option.setAttribute("aria-pressed", String(selected));
-        });
-    }
     const countHint = document.querySelector(".question-count-copy span");
-    if (countHint) countHint.textContent = categoryOnly ? strings.countHintCategory : strings.countHintAll;
+    if (countHint) countHint.textContent = selectedCategory === "all" ? strings.countHintAll : strings.countHintCategory;
     updateQuizInfo();
 }
+// Odświeża komunikat kampanii po zmianie języka, nie naliczając ponownie doświadczenia.
+function renderLevelResultMessage() {
+    if (!levelResultMessage) return;
+    const strings = uiText[currentLanguage];
+    if (levelResultKind === "success") levelResultMessage.textContent = strings.unlockSuccess(levelResultTarget);
+    else if (levelResultKind === "need") levelResultMessage.textContent = strings.unlockNeed(levelResultTarget);
+    else if (levelResultKind === "complete") levelResultMessage.textContent = strings.campaignComplete;
+    else if (levelResultKind === "completed") levelResultMessage.textContent = strings.levelCompleted;
+    else if (!resultsRecordedForCurrentRun) levelResultMessage.textContent = "";
+}
+// Aktualizuje karty poziomów, statusy blokad i widoczny postęp gracza.
+function updateLevelCards() {
+    const strings = uiText[currentLanguage];
+    levelButtons.forEach(button => {
+        const poziom = Number(button.dataset.level);
+        const odblokowany = selectedMode === "free" || poziom <= highestUnlockedLevel;
+        const wybrany = poziom === selectedLevel;
+        button.disabled = !odblokowany;
+        button.classList.toggle("selected", wybrany);
+        button.setAttribute("aria-pressed", String(wybrany));
+        const name = button.querySelector(`[data-level-name="${poziom}"]`);
+        const description = button.querySelector(`[data-level-description="${poziom}"]`);
+        const status = button.querySelector(`[data-level-status="${poziom}"]`);
+        if (name) name.textContent = strings.levelNames[poziom - 1];
+        if (description) description.textContent = strings.levelDescriptions[poziom - 1];
+        if (status) status.textContent = completedLevels.includes(poziom) ? strings.levelCompleted : (odblokowany ? strings.levelUnlocked : strings.levelLocked);
+        const number = button.querySelector(".level-card-number");
+        if (number) number.textContent = strings.levelBadge(poziom);
+    });
+    if (levelProgressValue) levelProgressValue.textContent = `${highestUnlockedLevel}/5`;
+    if (xpValue) xpValue.textContent = `${totalXP} ${strings.xpLabel}`;
+    modeButtons.forEach(button => {
+        const active = button.dataset.gameMode === selectedMode;
+        button.classList.toggle("selected", active);
+        button.setAttribute("aria-pressed", String(active));
+    });
+    if (quizLevelBadge) quizLevelBadge.textContent = `${strings.levelBadge(selectedLevel)} · ${strings.levelNames[selectedLevel - 1]}`;
+}
+// Zmienia tryb gry; w kampanii gracz nie może wybrać jeszcze nieodblokowanego poziomu.
+modeButtons.forEach(button => button.addEventListener("click", () => {
+    selectedMode = button.dataset.gameMode === "campaign" ? "campaign" : "free";
+    if (selectedMode === "campaign" && selectedLevel > highestUnlockedLevel) selectedLevel = highestUnlockedLevel;
+    updateLevelCards();
+}));
+// Wybór poziomu jest swobodny w trybie wolnym, a w kampanii ograniczony postępem.
+levelButtons.forEach(button => button.addEventListener("click", () => {
+    const poziom = Number(button.dataset.level);
+    if (selectedMode === "campaign" && poziom > highestUnlockedLevel) return;
+    selectedLevel = poziom;
+    updateLevelCards();
+    updateQuizInfo();
+}));
+
 // Obsługa kliknięć: wybór kategorii, liczby pytań, startu, kolejnych pytań i motywu.
 document.querySelectorAll("[data-category]").forEach(button => {
     button.addEventListener("click", () => {
@@ -550,6 +733,7 @@ document.querySelectorAll("[data-count]").forEach(button => {
     });
 });
 updateCountAvailability();
+updateLevelCards();
 startButton.addEventListener("click", () => {
     if (startButton.disabled) return;
     startButton.disabled = true;
@@ -563,7 +747,7 @@ startButton.addEventListener("click", () => {
     }, 650);
 });
 nextButton.addEventListener("click", nextQuestion);
-restartButton.addEventListener("click", () => showScreen(welcomeScreen));
+restartButton.addEventListener("click", () => { updateLevelCards(); showScreen(welcomeScreen); });
 languageButtons.forEach(button => button.addEventListener("click", () => applyLanguage(button.dataset.language)));
 nextFactButton.addEventListener("click", () => renderFact());
 nextResultFactButton.addEventListener("click", () => renderFact());

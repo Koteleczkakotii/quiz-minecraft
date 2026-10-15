@@ -1481,3 +1481,41 @@ body {
 .result-fact-next { flex: 0 0 34px; width: 34px; height: 34px; border: 1px solid var(--theme-border, rgba(196,167,255,.25)); border-radius: 10px; background: rgba(255,255,255,.045); color: var(--text); font-size: 18px; cursor: pointer; transition: transform .2s ease; }
 .result-fact-next:hover { transform: rotate(35deg); }
 @media (max-width: 600px) { .result-fact { align-items: flex-start; gap: 10px; padding: 13px 11px; } .result-fact-icon { flex-basis: 32px; height: 32px; } }
+
+/* SYSTEM POZIOMÓW — dodatkowe karty zachowują obecny pastelowy wygląd strony. */
+.level-system {
+    width: 100%;
+    margin: 26px 0 8px;
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--card);
+    text-align: left;
+    backdrop-filter: blur(16px);
+}
+.level-section-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.level-heading-row { margin-top: 23px; flex-wrap: wrap; }
+.mode-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.mode-option { display: flex; flex-direction: column; gap: 5px; min-height: 68px; padding: 13px 15px; text-align: left; border: 1px solid var(--border); border-radius: 16px; background: rgba(255,255,255,.035); cursor: pointer; transition: .22s ease; }
+.mode-option strong { font-size: 13px; }
+.mode-option span { color: var(--text-muted); font-size: 11px; line-height: 1.45; }
+.mode-option:hover, .mode-option.selected { border-color: var(--lavender); background: rgba(196,167,255,.11); box-shadow: 0 0 0 1px rgba(196,167,255,.08); }
+.level-progress-label { color: var(--text-muted); font-size: 11px; }
+.level-progress-label strong { color: var(--lavender); }
+.level-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 9px; }
+.level-card { position: relative; display: flex; min-width: 0; flex-direction: column; align-items: center; gap: 6px; padding: 13px 8px 11px; border: 1px solid var(--border); border-radius: 17px; background: rgba(255,255,255,.035); text-align: center; cursor: pointer; transition: transform .22s ease, border-color .22s ease, background .22s ease; }
+.level-card:hover:not(:disabled) { transform: translateY(-3px); border-color: var(--lavender); }
+.level-card.selected { border-color: var(--lavender); background: rgba(196,167,255,.13); box-shadow: 0 0 18px rgba(167,139,250,.1); }
+.level-card:disabled { opacity: .48; cursor: not-allowed; filter: saturate(.55); }
+.level-card-icon { font-size: 24px; }
+.level-card-number { color: var(--text-muted); font-size: 8px; font-weight: 900; letter-spacing: 1px; }
+.level-card strong { font-size: 11px; line-height: 1.25; overflow-wrap: anywhere; }
+.level-card small { min-height: 27px; color: var(--text-muted); font-size: 9px; line-height: 1.35; }
+.level-card-status { color: var(--mint); font-size: 8px; font-weight: 800; line-height: 1.3; }
+.level-card:disabled .level-card-status { color: var(--text-muted); }
+.quiz-level-badge { display: inline-flex; width: fit-content; margin-top: 4px; padding: 4px 8px; border: 1px solid var(--border); border-radius: 99px; color: var(--lavender); font-size: 9px; font-weight: 900; letter-spacing: .6px; }
+.level-result-message { margin: 14px auto 0; max-width: 520px; color: var(--lavender); font-size: 13px; font-weight: 800; line-height: 1.6; }
+html[data-theme="cherry"] .mode-option:hover, html[data-theme="cherry"] .mode-option.selected, html[data-theme="cherry"] .level-card:hover:not(:disabled), html[data-theme="cherry"] .level-card.selected { border-color: var(--pink); background: rgba(255,183,213,.1); }
+html[data-theme="ender"] .mode-option:hover, html[data-theme="ender"] .mode-option.selected, html[data-theme="ender"] .level-card:hover:not(:disabled), html[data-theme="ender"] .level-card.selected { border-color: var(--blue); background: rgba(169,213,255,.1); }
+@media (max-width: 760px) { .level-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .level-system { padding: 17px; } }
+@media (max-width: 480px) { .mode-options { grid-template-columns: 1fr; } .level-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .level-card:last-child { grid-column: 1 / -1; } .level-progress-label { width: 100%; } .quiz-level-badge { font-size: 8px; } }
