@@ -134,10 +134,22 @@ const nazwyKategorii = {
     crafting: { pl: "przedmiot lub blok", en: "item or block" },
     dimensions: { pl: "struktura lub element", en: "structure or feature" }
 };
+// These crafting entries store the Polish and English names in reverse order.
+const reversedCraftingNamePairs = new Set([
+    "Bow|Łuk",
+    "Blast Furnace|Piec hutniczy",
+    "Smoker|Wędzarka",
+    "Campfire|Ognisko",
+    "Lectern|Pulpit",
+    "Stonecutter|Kamieniarz"
+]);
 Object.keys(dodatkoweWskazowki).forEach(kategoria => {
     const wpisy = dodatkoweWskazowki[kategoria];
     wpisy.forEach((wpis, indeks) => {
-        const [nazwaPL, nazwaEN, wskazowkaPL, wskazowkaEN] = wpis;
+        let [nazwaPL, nazwaEN, wskazowkaPL, wskazowkaEN] = wpis;
+        if (kategoria === "crafting" && reversedCraftingNamePairs.has(`${nazwaPL}|${nazwaEN}`)) {
+            [nazwaPL, nazwaEN] = [nazwaEN, nazwaPL];
+        }
         const pulaBlednych = wpisy.filter((_, i) => i !== indeks);
         const bledne = [pulaBlednych[(indeks + 2) % pulaBlednych.length], pulaBlednych[(indeks + 7) % pulaBlednych.length], pulaBlednych[(indeks + 13) % pulaBlednych.length]];
         const odpowiedziPL = [nazwaPL, ...bledne.map(element => element[0])];
