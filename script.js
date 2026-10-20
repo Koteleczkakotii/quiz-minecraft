@@ -345,7 +345,7 @@ function updateAuthLanguage() {
     Object.entries(elements).forEach(([id, text]) => { const el = document.getElementById(id); if (el) el.textContent = text; });
     const username = document.getElementById("authUsername");
     const password = document.getElementById("authPassword");
-    if (username) username.placeholder = en ? "e.g. Kotii" : "np. Kotii";
+    if (username) username.placeholder = en ? "🎀✨💗" : "🎀✨💗";
     if (password) password.placeholder = en ? "At least 4 characters" : "Minimum 4 znaki";
     const title = document.getElementById("authTitle");
     const submit = document.getElementById("authSubmit");
