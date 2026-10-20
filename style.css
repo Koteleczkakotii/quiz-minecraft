@@ -1566,3 +1566,98 @@ html[data-theme="ender"] .reset-progress-button:hover {
         transition: none;
     }
 }
+
+/* ================= ANIMOWANE NAGRODY ================= */
+/* Okno nagrody korzysta z kolorów aktywnego motywu strony. */
+.reward-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: grid;
+    place-items: center;
+    padding: 22px;
+    overflow-y: auto;
+}
+.reward-overlay.is-hidden { display: none; }
+.reward-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(9, 7, 18, .78);
+    backdrop-filter: blur(12px);
+    animation: reward-backdrop-in .35s ease both;
+}
+.reward-dialog {
+    --reward-glow: var(--theme-primary);
+    position: relative;
+    isolation: isolate;
+    width: min(100%, 430px);
+    padding: 36px 28px 30px;
+    overflow: hidden;
+    text-align: center;
+    border: 1px solid var(--theme-border);
+    border-radius: 30px;
+    background: radial-gradient(circle at 50% 20%, var(--theme-glow), transparent 48%), linear-gradient(145deg, rgba(34, 27, 54, .98), rgba(17, 14, 30, .99));
+    box-shadow: 0 25px 90px rgba(0, 0, 0, .48), 0 0 42px var(--theme-glow);
+    color: var(--theme-text);
+}
+.reward-dialog-enter { animation: reward-dialog-in .65s cubic-bezier(.18, .85, .25, 1.2) both; }
+.reward-close {
+    position: absolute; top: 12px; right: 14px; z-index: 5;
+    width: 34px; height: 34px; border: 1px solid var(--theme-border);
+    border-radius: 50%; background: var(--theme-card); color: var(--theme-soft);
+    font: inherit; font-size: 23px; line-height: 1; cursor: pointer;
+    transition: transform .2s ease, color .2s ease, border-color .2s ease;
+}
+.reward-close:hover { transform: rotate(90deg); color: var(--theme-primary); border-color: var(--theme-primary); }
+.reward-particles { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.reward-particle {
+    position: absolute; left: var(--particle-x); bottom: -28px;
+    color: var(--theme-secondary); font-size: var(--particle-size);
+    opacity: 0; text-shadow: 0 0 15px var(--theme-glow);
+    animation: reward-particle-float var(--particle-duration) ease-out var(--particle-delay) infinite;
+}
+.reward-crown { position: absolute; top: 49px; left: calc(50% - 18px); z-index: 3; font-size: 35px; filter: drop-shadow(0 0 13px #f9d77a); animation: reward-crown-bob 1.6s ease-in-out infinite; }
+.reward-crown[hidden] { display: none; }
+.reward-chest-wrap { position: relative; display: grid; place-items: center; width: 160px; height: 145px; margin: 0 auto 8px; }
+.reward-chest-glow { position: absolute; width: 130px; height: 100px; border-radius: 50%; background: var(--reward-glow); filter: blur(32px); opacity: .58; animation: reward-glow-pulse 1.7s ease-in-out infinite; }
+.reward-chest { position: relative; width: 108px; height: 80px; margin-top: 24px; filter: drop-shadow(0 12px 12px rgba(0,0,0,.28)); animation: reward-chest-bob 2s ease-in-out infinite; }
+.reward-chest-lid { position: absolute; left: 0; top: 0; z-index: 2; width: 108px; height: 31px; border: 3px solid #6e3d88; border-radius: 9px 9px 3px 3px; background: linear-gradient(180deg, #f7d9ff, #b88be8); transform-origin: 8px 28px; animation: reward-chest-open .85s .25s cubic-bezier(.2,.8,.2,1) both; }
+.reward-chest-lid span { position: absolute; left: 13px; right: 13px; bottom: 2px; height: 5px; border-radius: 4px; background: rgba(92, 48, 121, .45); }
+.reward-chest-base { position: absolute; left: 4px; right: 4px; top: 29px; height: 48px; border: 3px solid #6e3d88; border-radius: 3px 3px 9px 9px; background: linear-gradient(135deg, #e8c0ff, #a66bd0 68%, #7746aa); box-shadow: inset 0 5px rgba(255,255,255,.18); }
+.reward-chest-base::before { content: ""; position: absolute; top: 0; bottom: 0; left: 16px; width: 9px; background: rgba(255, 230, 173, .72); border-inline: 2px solid rgba(102, 60, 119, .55); }
+.reward-chest-lock { position: absolute; z-index: 2; top: 7px; left: 42px; display: grid; place-items: center; width: 20px; height: 23px; border: 2px solid #81512b; border-radius: 5px; background: linear-gradient(#ffe9a6, #dba64b); color: #87542e; font-size: 12px; }
+.reward-kicker { margin: 5px 0 8px; color: var(--theme-secondary); font-size: 10px; font-weight: 900; letter-spacing: 2.3px; }
+.reward-dialog h2 { margin: 0 0 9px; font-size: clamp(25px, 6vw, 34px); line-height: 1.1; font-weight: 900; background: linear-gradient(100deg, var(--theme-primary), var(--theme-secondary), var(--theme-tertiary)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.reward-description { max-width: 310px; margin: 0 auto 17px; color: var(--theme-soft); font-size: 13px; line-height: 1.65; }
+.reward-xp { display: inline-flex; align-items: center; justify-content: center; min-width: 120px; padding: 9px 20px; border: 1px solid var(--theme-border); border-radius: 999px; background: var(--theme-card); color: var(--theme-secondary); font-size: 20px; font-weight: 900; box-shadow: 0 0 25px var(--theme-glow); animation: reward-xp-pop .55s .45s both; }
+.reward-level-message { min-height: 20px; margin: 13px 0 0; color: var(--theme-tertiary); font-size: 12px; font-weight: 900; line-height: 1.5; }
+.reward-collect-button { position: relative; z-index: 2; margin-top: 16px; width: 100%; }
+.reward-magic .reward-chest-glow { opacity: .72; }
+.reward-legendary .reward-dialog { border-color: rgba(255, 219, 128, .65); box-shadow: 0 25px 90px rgba(0,0,0,.48), 0 0 55px rgba(255, 209, 102, .28); }
+.reward-legendary .reward-chest-glow { background: #f6d77d; opacity: .8; }
+.reward-legendary .reward-chest-lid { background: linear-gradient(180deg, #fff0b4, #dca84d); border-color: #8e6531; }
+.reward-legendary .reward-chest-base { background: linear-gradient(135deg, #ffe9a6, #c68c3e 68%, #8e5b2d); border-color: #8e6531; }
+.reward-legendary .reward-chest-base::before { background: rgba(255, 248, 209, .85); }
+.reward-legendary .reward-kicker { color: #ffdf8a; }
+.reward-legendary .reward-xp { color: #ffe4a0; border-color: rgba(255,219,128,.55); }
+.reward-level-up .reward-level-message { animation: reward-xp-pop .5s .3s both; }
+@keyframes reward-backdrop-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes reward-dialog-in { from { opacity: 0; transform: translateY(22px) scale(.86); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes reward-chest-open { 0% { transform: rotate(0); } 45%, 100% { transform: rotate(-28deg) translateY(-5px); } }
+@keyframes reward-chest-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes reward-glow-pulse { 0%, 100% { transform: scale(.88); opacity: .4; } 50% { transform: scale(1.08); opacity: .8; } }
+@keyframes reward-crown-bob { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-6px) rotate(5deg); } }
+@keyframes reward-xp-pop { from { opacity: 0; transform: translateY(8px) scale(.8); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes reward-particle-float { 0% { transform: translateY(0) rotate(0) scale(.7); opacity: 0; } 15% { opacity: .9; } 100% { transform: translateY(-390px) rotate(220deg) scale(1.15); opacity: 0; } }
+/* Motyw Cherry Blossom i Ender Magic zachowują własną paletę nagród. */
+html[data-theme="cherry"] .reward-dialog { --reward-glow: rgba(255, 159, 201, .6); }
+html[data-theme="ender"] .reward-dialog { --reward-glow: rgba(139, 92, 246, .65); }
+@media (max-width: 480px) {
+    .reward-overlay { padding: 14px; }
+    .reward-dialog { padding: 32px 20px 23px; border-radius: 24px; }
+    .reward-chest-wrap { transform: scale(.9); margin-top: -4px; margin-bottom: 0; }
+    .reward-dialog h2 { font-size: 27px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .reward-backdrop, .reward-dialog-enter, .reward-particle, .reward-crown, .reward-chest-glow, .reward-chest, .reward-chest-lid, .reward-xp, .reward-level-message { animation: none !important; }
+}

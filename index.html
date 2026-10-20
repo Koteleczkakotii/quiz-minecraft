@@ -251,6 +251,28 @@
                 </button>
                 <p class="welcome-footer" data-i18n="resultFooter">KAŻDY BLOK MA SWOJĄ HISTORIĘ <span>♥</span></p>
             </div>
+            <!-- Animowane okno nagrody wyświetlane po zakończeniu quizu -->
+            <div class="reward-overlay is-hidden" id="rewardOverlay" role="dialog" aria-modal="true" aria-labelledby="rewardTitle" aria-describedby="rewardDescription">
+                <div class="reward-backdrop" data-close-reward="true"></div>
+                <div class="reward-dialog" id="rewardDialog" tabindex="-1">
+                    <button type="button" class="reward-close" id="closeRewardButton" aria-label="Zamknij nagrodę">×</button>
+                    <div class="reward-particles" id="rewardParticles" aria-hidden="true"></div>
+                    <div class="reward-crown" id="rewardCrown" aria-hidden="true">👑</div>
+                    <div class="reward-chest-wrap" aria-hidden="true">
+                        <div class="reward-chest-glow"></div>
+                        <div class="reward-chest">
+                            <div class="reward-chest-lid"><span></span></div>
+                            <div class="reward-chest-base"><span class="reward-chest-lock">✦</span></div>
+                        </div>
+                    </div>
+                    <p class="reward-kicker" id="rewardKicker">NAGRODA ODEBRANA</p>
+                    <h2 id="rewardTitle">Magiczna nagroda!</h2>
+                    <p class="reward-description" id="rewardDescription">Każda przygoda przybliża Cię do mistrzostwa.</p>
+                    <div class="reward-xp" id="rewardXP">+100 XP</div>
+                    <p class="reward-level-message" id="rewardLevelMessage"></p>
+                    <button type="button" class="primary-button reward-collect-button" id="collectRewardButton">Odbierz nagrodę ✨</button>
+                </div>
+            </div>
         </section>
     </main>
     <!-- Stopka strony -->

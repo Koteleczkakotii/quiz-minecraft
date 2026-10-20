@@ -253,6 +253,8 @@ let completedLevels = [];
 let totalXP = 0;
 let bestLevelScores = {};
 let resultsRecordedForCurrentRun = false;
+let rewardShownForCurrentRun = false;
+let rewardXPThisRun = 0;
 let levelResultKind = "";
 let levelResultTarget = 0;
 // Odczytujemy zapis kampanii, ale błędne lub niepełne dane zastępujemy bezpiecznymi wartościami.
@@ -462,6 +464,8 @@ function startQuiz() {
     score = 0;
     answered = false;
     resultsRecordedForCurrentRun = false;
+    rewardShownForCurrentRun = false;
+    rewardXPThisRun = 0;
     levelResultKind = "";
     levelResultTarget = 0;
     if (levelResultMessage) levelResultMessage.textContent = "";
@@ -546,6 +550,8 @@ function nextQuestion() {
 // Oblicza procent poprawnych odpowiedzi i dobiera komunikat do uzyskanego wyniku.
 function showResults() {
     showScreen(resultScreen);
+    // Zapamiętujemy, czy to pierwsze pokazanie wyników tej rundy.
+    const showRewardAfterRender = !resultsRecordedForCurrentRun;
     const percentage = Math.round((score / currentQuestions.length) * 100);
     finalScore.textContent = score;
     maxScore.textContent = currentQuestions.length;
@@ -556,7 +562,13 @@ function showResults() {
     if (!resultsRecordedForCurrentRun) {
         resultsRecordedForCurrentRun = true;
         // XP naliczamy raz za ukończoną rundę; ponowne renderowanie języka nie duplikuje punktów.
-        totalXP += score * 10;
+        rewardXPThisRun = score * 10;
+        totalXP += rewardXPThisRun;
+        // Perfekcyjny wynik daje dodatkowy bonus doświadczenia.
+        if (percentage === 100) {
+            totalXP += 25;
+            rewardXPThisRun += 25;
+        }
         bestLevelScores[String(selectedLevel)] = Math.max(Number(bestLevelScores[String(selectedLevel)] || 0), percentage);
         let komunikatPostepu = "";
         levelResultKind = "";
@@ -567,6 +579,7 @@ function showResults() {
                 if (selectedLevel < 5 && highestUnlockedLevel < selectedLevel + 1) {
                     highestUnlockedLevel = selectedLevel + 1;
                     totalXP += 50;
+                    rewardXPThisRun += 50;
                     levelResultKind = "success";
                     levelResultTarget = highestUnlockedLevel;
                     komunikatPostepu = strings.unlockSuccess(highestUnlockedLevel);
@@ -609,7 +622,91 @@ function showResults() {
         resultDescription.textContent = strings.resultLowDescription;
         resultMessage.textContent = strings.resultLowMessage;
     }
+    // Animacja pojawia się tylko raz na rundę, nawet jeśli zmienimy język wyników.
+    if (showRewardAfterRender && !rewardShownForCurrentRun) {
+        rewardShownForCurrentRun = true;
+        showRewardCelebration(percentage);
+    }
 }
+// Pokazuje skrzynię nagrody w zależności od wyniku i aktywnego motywu.
+function showRewardCelebration(percentage) {
+    const overlay = document.getElementById("rewardOverlay");
+    const title = document.getElementById("rewardTitle");
+    const description = document.getElementById("rewardDescription");
+    const kicker = document.getElementById("rewardKicker");
+    const xp = document.getElementById("rewardXP");
+    const levelMessage = document.getElementById("rewardLevelMessage");
+    const crown = document.getElementById("rewardCrown");
+    const dialog = document.getElementById("rewardDialog");
+    const particles = document.getElementById("rewardParticles");
+    if (!overlay || !title || !description || !xp || !dialog) return;
+
+    const english = currentLanguage === "en";
+    const perfect = percentage === 100;
+    const levelUp = levelResultKind === "success" || levelResultKind === "complete";
+    const rewardTier = perfect ? "legendary" : (percentage >= 60 ? "magic" : "small");
+    overlay.classList.remove("is-hidden", "reward-small", "reward-magic", "reward-legendary", "reward-level-up");
+    overlay.classList.add(`reward-${rewardTier}`);
+    if (levelUp) overlay.classList.add("reward-level-up");
+    crown.hidden = !perfect;
+
+    if (perfect) {
+        kicker.textContent = english ? "LEGENDARY REWARD" : "LEGENDARNA NAGRODA";
+        title.textContent = english ? "PERFECT!" : "PERFEKCYJNIE!";
+        description.textContent = english ? "Every answer was correct. You are a Minecraft legend!" : "Wszystkie odpowiedzi poprawne. Jesteś legendą Minecrafta!";
+    } else if (percentage >= 60) {
+        kicker.textContent = english ? "MAGICAL REWARD" : "MAGICZNA NAGRODA";
+        title.textContent = english ? "A treasure is yours!" : "Skarb jest Twój!";
+        description.textContent = english ? "Your knowledge shines brighter with every adventure." : "Twoja wiedza błyszczy coraz jaśniej z każdą przygodą.";
+    } else {
+        kicker.textContent = english ? "ADVENTURE REWARD" : "NAGRODA ZA PRZYGODĘ";
+        title.textContent = english ? "Every step counts!" : "Każdy krok się liczy!";
+        description.textContent = english ? "Keep exploring — every block is a chance to learn." : "Odkrywaj dalej — każdy blok to okazja do nauki.";
+    }
+    xp.textContent = `+${rewardXPThisRun} XP`;
+    if (levelUp && levelResultKind === "success") {
+        levelMessage.textContent = english ? `LEVEL UP! Level ${levelResultTarget} unlocked!` : `AWANS! Odblokowano poziom ${levelResultTarget}!`;
+    } else if (levelUp && levelResultKind === "complete") {
+        levelMessage.textContent = english ? "CAMPAIGN COMPLETE! You mastered all five levels!" : "KAMPANIA UKOŃCZONA! Opanowano wszystkie pięć poziomów!";
+    } else {
+        levelMessage.textContent = "";
+    }
+
+    // Tworzymy lekkie drobinki CSS; nie są potrzebne żadne zewnętrzne grafiki.
+    if (particles) {
+        particles.replaceChildren();
+        const symbols = document.documentElement.dataset.theme === "cherry" ? ["✿", "✧", "♡", "✦"]
+            : document.documentElement.dataset.theme === "ender" ? ["✦", "✧", "◆", "✴"]
+            : ["✦", "✧", "✴", "💎"];
+        for (let i = 0; i < (perfect ? 30 : 18); i++) {
+            const particle = document.createElement("span");
+            particle.className = "reward-particle";
+            particle.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            particle.style.setProperty("--particle-x", `${Math.random() * 100}%`);
+            particle.style.setProperty("--particle-delay", `${Math.random() * 0.8}s`);
+            particle.style.setProperty("--particle-duration", `${2.2 + Math.random() * 2.4}s`);
+            particle.style.setProperty("--particle-size", `${10 + Math.random() * 14}px`);
+            particles.appendChild(particle);
+        }
+    }
+    overlay.setAttribute("aria-label", english ? "Quiz reward" : "Nagroda za quiz");
+    overlay.classList.remove("is-hidden");
+    dialog.classList.remove("reward-dialog-enter");
+    void dialog.offsetWidth;
+    dialog.classList.add("reward-dialog-enter");
+    const closeButton = document.getElementById("closeRewardButton");
+    if (closeButton) closeButton.setAttribute("aria-label", english ? "Close reward" : "Zamknij nagrodę");
+    const collectButton = document.getElementById("collectRewardButton");
+    if (collectButton) collectButton.textContent = english ? "Collect reward ✨" : "Odbierz nagrodę ✨";
+    window.setTimeout(() => { if (!overlay.classList.contains("is-hidden")) dialog.focus(); }, 80);
+}
+
+// Zamyka okno nagrody bez zmieniania zdobytych punktów i postępu.
+function closeRewardCelebration() {
+    const overlay = document.getElementById("rewardOverlay");
+    if (overlay) overlay.classList.add("is-hidden");
+}
+
 // Tworzy ozdobne, unoszące się symbole w tle strony.
 function createParticles() {
     const container = document.getElementById("particles");
@@ -777,6 +874,19 @@ resetProgressButton.addEventListener("click", () => {
             : "✨ Done! Your progress has been reset."
     );
 });
+// Przyciski i tło okna nagrody zamykają animację, ale nie cofają postępu.
+["closeRewardButton", "collectRewardButton"].forEach(id => {
+    const button = document.getElementById(id);
+    if (button) button.addEventListener("click", closeRewardCelebration);
+});
+const rewardOverlayElement = document.getElementById("rewardOverlay");
+if (rewardOverlayElement) rewardOverlayElement.addEventListener("click", event => {
+    if (event.target.dataset.closeReward === "true") closeRewardCelebration();
+});
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") closeRewardCelebration();
+});
+
 languageButtons.forEach(button => button.addEventListener("click", () => applyLanguage(button.dataset.language)));
 nextFactButton.addEventListener("click", () => renderFact());
 nextResultFactButton.addEventListener("click", () => renderFact());
