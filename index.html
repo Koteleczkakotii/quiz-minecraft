@@ -31,10 +31,37 @@
                 <span aria-hidden="true">|</span>
                 <button type="button" class="language-button" data-language="en" aria-pressed="false">EN</button>
             </div>
+            <div class="account-chip" id="accountChip" hidden>
+                <span class="account-chip-icon">✦</span>
+                <span id="accountNameLabel">Gracz</span>
+                <button type="button" id="logoutButton" class="logout-button">Wyloguj</button>
+            </div>
             <span class="status-dot"></span>
             <span class="status-text" data-i18n="status">CZAS NA QUIZ</span>
         </div>
     </header>
+    <!-- Lokalny ekran kont: profile działają w tej samej przeglądarce i na tym urządzeniu. -->
+    <section class="auth-overlay" id="authOverlay" aria-labelledby="authTitle">
+        <div class="auth-card">
+            <div class="auth-crystal" aria-hidden="true">💎</div>
+            <p class="auth-kicker" id="authKicker">TWOJA WŁASNA PRZYGODA</p>
+            <h2 id="authTitle">Zaloguj się</h2>
+            <p class="auth-description" id="authDescription">Zapisuj własny postęp i wracaj do swojej przygody.</p>
+            <form id="authForm" autocomplete="on">
+                <label class="auth-label" for="authUsername" id="authUsernameLabel">Nazwa gracza</label>
+                <input id="authUsername" name="username" type="text" minlength="3" maxlength="20" autocomplete="username" required placeholder="np. Kotii">
+                <label class="auth-label" for="authPassword" id="authPasswordLabel">Hasło</label>
+                <input id="authPassword" name="password" type="password" minlength="4" autocomplete="current-password" required placeholder="Minimum 4 znaki">
+                <p class="auth-message" id="authMessage" role="status" aria-live="polite"></p>
+                <button class="primary-button auth-submit" id="authSubmit" type="submit">Zaloguj się ✨</button>
+            </form>
+            <p class="auth-switch-line"><span id="authSwitchText">Nie masz jeszcze konta?</span>
+                <button type="button" class="auth-switch-button" id="authModeToggle">Utwórz konto</button>
+            </p>
+            <p class="auth-local-note" id="authLocalNote">Konta są zapisywane tylko w tej przeglądarce na tym urządzeniu.</p>
+        </div>
+    </section>
+
     <!-- Główna część strony – znajdują się tu kolejne ekrany aplikacji -->
     <main class="main-container">
         <!-- EKRAN POWITALNY: wybór motywu, kategorii i liczby pytań -->

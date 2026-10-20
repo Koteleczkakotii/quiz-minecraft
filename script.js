@@ -245,7 +245,20 @@ const levelProgressValue = document.getElementById("levelProgressValue");
 const xpValue = document.getElementById("xpValue");
 const quizLevelBadge = document.getElementById("quizLevelBadge");
 const levelResultMessage = document.getElementById("levelResultMessage");
-const progressionStorageKey = "minecraftQuizProgressV1";
+// Prosty system kont lokalnych. Nie synchronizuje danych pomiędzy urządzeniami.
+const legacyProgressionStorageKey = "minecraftQuizProgressV1";
+const accountsStorageKey = "minecraftQuizLocalAccountsV1";
+const currentAccountStorageKey = "minecraftQuizCurrentAccountV1";
+let currentAccount = "";
+let progressionStorageKey = legacyProgressionStorageKey;
+try {
+    const savedAccount = localStorage.getItem(currentAccountStorageKey) || "";
+    const savedAccounts = JSON.parse(localStorage.getItem(accountsStorageKey) || "{}");
+    if (savedAccount && savedAccounts[savedAccount]) {
+        currentAccount = savedAccount;
+        progressionStorageKey = `${legacyProgressionStorageKey}:${currentAccount}`;
+    }
+} catch (_) { /* Gdy pamięć jest niedostępna, ekran logowania pozwoli spróbować ponownie. */ }
 let selectedMode = "free";
 let selectedLevel = 1;
 let highestUnlockedLevel = 1;
@@ -257,14 +270,8 @@ let rewardShownForCurrentRun = false;
 let rewardXPThisRun = 0;
 let levelResultKind = "";
 let levelResultTarget = 0;
-// Odczytujemy zapis kampanii, ale błędne lub niepełne dane zastępujemy bezpiecznymi wartościami.
-try {
-    const zapisPostepu = JSON.parse(localStorage.getItem(progressionStorageKey) || "{}");
-    highestUnlockedLevel = Math.min(5, Math.max(1, Number(zapisPostepu.highestUnlockedLevel) || 1));
-    completedLevels = Array.isArray(zapisPostepu.completedLevels) ? zapisPostepu.completedLevels.filter(n => Number.isInteger(n) && n >= 1 && n <= 5) : [];
-    totalXP = Math.max(0, Number(zapisPostepu.totalXP) || 0);
-    bestLevelScores = zapisPostepu.bestLevelScores && typeof zapisPostepu.bestLevelScores === "object" ? zapisPostepu.bestLevelScores : {};
-} catch (_) { /* Przy braku dostępu do pamięci przeglądarki quiz nadal działa. */ }
+// Wczytujemy zapis przypisany do aktywnego konta (jeśli użytkownik jest zalogowany).
+loadProgressForAccount();
 const estimatedTime = document.getElementById("estimatedTime");
 const startButtonLabel = document.getElementById("startButtonLabel");
 const factText = document.getElementById("factText");
@@ -283,6 +290,93 @@ let currentIndex = 0;
 let score = 0;
 let answered = false;
 let lastSelectedIndex = null;
+
+// Odczytuje listę lokalnych kont. To demonstracja, a nie bezpieczny system internetowy.
+function readLocalAccounts() {
+    try {
+        const value = JSON.parse(localStorage.getItem(accountsStorageKey) || "{}");
+        return value && typeof value === "object" ? value : {};
+    } catch (_) { return {}; }
+}
+function writeLocalAccounts(accounts) {
+    localStorage.setItem(accountsStorageKey, JSON.stringify(accounts));
+}
+function resetProgressVariables() {
+    highestUnlockedLevel = 1;
+    completedLevels = [];
+    totalXP = 0;
+    bestLevelScores = {};
+}
+function loadProgressForAccount() {
+    resetProgressVariables();
+    try {
+        const saved = JSON.parse(localStorage.getItem(progressionStorageKey) || "{}");
+        highestUnlockedLevel = Math.min(5, Math.max(1, Number(saved.highestUnlockedLevel) || 1));
+        completedLevels = Array.isArray(saved.completedLevels) ? saved.completedLevels.filter(n => Number.isInteger(n) && n >= 1 && n <= 5) : [];
+        totalXP = Math.max(0, Number(saved.totalXP) || 0);
+        bestLevelScores = saved.bestLevelScores && typeof saved.bestLevelScores === "object" ? saved.bestLevelScores : {};
+    } catch (_) { resetProgressVariables(); }
+}
+function updateAccountChip() {
+    const chip = document.getElementById("accountChip");
+    const name = document.getElementById("accountNameLabel");
+    if (chip) chip.hidden = !currentAccount;
+    if (name) name.textContent = currentAccount;
+    const overlay = document.getElementById("authOverlay");
+    if (overlay) overlay.classList.toggle("is-hidden", Boolean(currentAccount));
+}
+function showAuthMessage(message, isSuccess = false) {
+    const element = document.getElementById("authMessage");
+    if (!element) return;
+    element.textContent = message;
+    element.classList.toggle("success", isSuccess);
+}
+let authMode = "login";
+function updateAuthLanguage() {
+    const en = currentLanguage === "en";
+    const elements = {
+        authKicker: en ? "YOUR OWN ADVENTURE" : "TWOJA WŁASNA PRZYGODA",
+        authDescription: en ? "Save your progress and return to your adventure." : "Zapisuj własny postęp i wracaj do swojej przygody.",
+        authUsernameLabel: en ? "Player name" : "Nazwa gracza",
+        authPasswordLabel: en ? "Password" : "Hasło",
+        authLocalNote: en ? "Accounts are saved only in this browser on this device." : "Konta są zapisywane tylko w tej przeglądarce na tym urządzeniu.",
+        logoutButton: en ? "Log out" : "Wyloguj"
+    };
+    Object.entries(elements).forEach(([id, text]) => { const el = document.getElementById(id); if (el) el.textContent = text; });
+    const username = document.getElementById("authUsername");
+    const password = document.getElementById("authPassword");
+    if (username) username.placeholder = en ? "e.g. Kotii" : "np. Kotii";
+    if (password) password.placeholder = en ? "At least 4 characters" : "Minimum 4 znaki";
+    const title = document.getElementById("authTitle");
+    const submit = document.getElementById("authSubmit");
+    const toggle = document.getElementById("authModeToggle");
+    const switchText = document.getElementById("authSwitchText");
+    if (authMode === "login") {
+        if (title) title.textContent = en ? "Log in" : "Zaloguj się";
+        if (submit) submit.textContent = en ? "Log in ✨" : "Zaloguj się ✨";
+        if (switchText) switchText.textContent = en ? "Don't have an account?" : "Nie masz jeszcze konta?";
+        if (toggle) toggle.textContent = en ? "Create account" : "Utwórz konto";
+        if (password) password.autocomplete = "current-password";
+    } else {
+        if (title) title.textContent = en ? "Create your account" : "Utwórz konto";
+        if (submit) submit.textContent = en ? "Create account ✨" : "Utwórz konto ✨";
+        if (switchText) switchText.textContent = en ? "Already have an account?" : "Masz już konto?";
+        if (toggle) toggle.textContent = en ? "Log in" : "Zaloguj się";
+        if (password) password.autocomplete = "new-password";
+    }
+}
+function finishLocalLogin(username) {
+    currentAccount = username;
+    progressionStorageKey = `${legacyProgressionStorageKey}:${currentAccount}`;
+    try { localStorage.setItem(currentAccountStorageKey, currentAccount); } catch (_) {}
+    loadProgressForAccount();
+    updateAccountChip();
+    showAuthMessage("");
+    selectedLevel = 1;
+    updateLevelCards();
+    updateQuizInfo();
+    showScreen(welcomeScreen);
+}
 
 // Teksty interfejsu w języku polskim i angielskim.
 const uiText = {
@@ -371,6 +465,7 @@ function applyLanguage(language, rerender = true) {
         if (strings[key]) element.setAttribute("aria-label", strings[key]);
     });
     if (nextResultFactButton) nextResultFactButton.setAttribute("aria-label", strings.resultFactAria);
+    updateAuthLanguage();
     languageButtons.forEach(button => {
         const active = button.dataset.language === currentLanguage;
         button.classList.toggle("active", active);
@@ -887,10 +982,86 @@ document.addEventListener("keydown", event => {
     if (event.key === "Escape") closeRewardCelebration();
 });
 
+// Obsługa rejestracji i logowania lokalnych profili.
+const authForm = document.getElementById("authForm");
+const authModeToggle = document.getElementById("authModeToggle");
+const authUsernameInput = document.getElementById("authUsername");
+const authPasswordInput = document.getElementById("authPassword");
+if (authModeToggle) authModeToggle.addEventListener("click", () => {
+    authMode = authMode === "login" ? "register" : "login";
+    showAuthMessage("");
+    if (authPasswordInput) authPasswordInput.value = "";
+    updateAuthLanguage();
+});
+if (authForm) authForm.addEventListener("submit", event => {
+    event.preventDefault();
+    const username = (authUsernameInput.value || "").trim();
+    const normalized = username.toLocaleLowerCase();
+    const password = authPasswordInput.value || "";
+    const en = currentLanguage === "en";
+    if (!/^[\p{L}\p{N}_-]{3,20}$/u.test(username)) {
+        showAuthMessage(en ? "Use 3–20 letters, numbers, _ or -." : "Użyj 3–20 liter, cyfr, znaku _ lub -.");
+        return;
+    }
+    if (password.length < 4) {
+        showAuthMessage(en ? "Password must contain at least 4 characters." : "Hasło musi mieć co najmniej 4 znaki.");
+        return;
+    }
+    const accounts = readLocalAccounts();
+    if (authMode === "register") {
+        if (accounts[normalized]) {
+            showAuthMessage(en ? "That player name is already taken." : "Ta nazwa gracza jest już zajęta.");
+            return;
+        }
+        const isFirstAccount = Object.keys(accounts).length === 0;
+        accounts[normalized] = { username, password, createdAt: new Date().toISOString() };
+        try {
+            writeLocalAccounts(accounts);
+            // Przy pierwszym koncie przenosimy dotychczasowy anonimowy postęp, jeśli istnieje.
+            if (isFirstAccount && localStorage.getItem(legacyProgressionStorageKey)) {
+                localStorage.setItem(`${legacyProgressionStorageKey}:${normalized}`, localStorage.getItem(legacyProgressionStorageKey));
+            }
+        } catch (_) {
+            showAuthMessage(en ? "Could not save the account in this browser." : "Nie udało się zapisać konta w tej przeglądarce.");
+            return;
+        }
+        finishLocalLogin(normalized);
+        authForm.reset();
+        updateAuthLanguage();
+    } else {
+        const account = accounts[normalized];
+        if (!account || account.password !== password) {
+            showAuthMessage(en ? "Incorrect player name or password." : "Nieprawidłowa nazwa gracza lub hasło.");
+            return;
+        }
+        finishLocalLogin(normalized);
+        authForm.reset();
+    }
+});
+const logoutButton = document.getElementById("logoutButton");
+if (logoutButton) logoutButton.addEventListener("click", () => {
+    currentAccount = "";
+    progressionStorageKey = legacyProgressionStorageKey;
+    try { localStorage.removeItem(currentAccountStorageKey); } catch (_) {}
+    resetProgressVariables();
+    selectedLevel = 1;
+    selectedMode = "free";
+    updateLevelCards();
+    updateQuizInfo();
+    showScreen(welcomeScreen);
+    authMode = "login";
+    if (authForm) authForm.reset();
+    showAuthMessage("");
+    updateAuthLanguage();
+    updateAccountChip();
+});
+
 languageButtons.forEach(button => button.addEventListener("click", () => applyLanguage(button.dataset.language)));
 nextFactButton.addEventListener("click", () => renderFact());
 nextResultFactButton.addEventListener("click", () => renderFact());
 createParticles();
 updateProgress();
 applyLanguage(currentLanguage, false);
+updateAccountChip();
+updateAuthLanguage();
 renderFact();
